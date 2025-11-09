@@ -1,635 +1,582 @@
-<!-- ===============================
-FILE: karate-school-of-champions.html
-Single-page site (HTML + Tailwind + JS)
-Color scheme: Crimson / Amber
-=================================== -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Karate School of Champions</title>
-  <meta name="description" content="Karate School of Champions — classes, instructors, location, and a free trial class." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            brand: { 50:'#fff1f2',100:'#ffe4e6',200:'#fecdd3',300:'#fda4af',400:'#fb7185',500:'#f43f5e',600:'#e11d48',700:'#be123c',800:'#9f1239',900:'#881337' },
-            accent: { 50:'#fffbeb',100:'#fef3c7',200:'#fde68a',300:'#fcd34d',400:'#fbbf24',500:'#f59e0b',600:'#d97706',700:'#b45309',800:'#92400e',900:'#78350f' }
-          },
-          fontFamily:{ sans:['Inter','system-ui','Segoe UI','Roboto','Helvetica Neue','Arial','sans-serif'] },
-          boxShadow:{ soft:'0 14px 30px -12px rgb(0 0 0 / 0.25)'}
-        }
-      }
-    }
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-</head>
-<body class="bg-white text-slate-800 font-sans">
-  <!-- Header -->
-  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3">
-        <!-- Associated organisation logo -->
-        <img src="assets/association-logo.png" alt="Association Logo" class="h-10 w-10 object-contain" onerror="this.outerHTML='🥋'"/>
-        <!-- Club logo -->
-        <img src="assets/ksc-logo.png" alt="Karate School of Champions Logo" class="h-10 w-10 object-contain"/>
-        <span class="font-extrabold tracking-tight">Karate School of Champions</span>
-      </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold">
-        <a href="#about" class="hover:text-brand-700">About</a>
-        <a href="#instructor" class="hover:text-brand-700">Instructor</a>
-        <a href="#classes" class="hover:text-brand-700">Classes</a>
-        <a href="#gallery" class="hover:text-brand-700">Gallery</a>
-        <a href="#videos" class="hover:text-brand-700">Videos</a>
-        <a href="#location" class="hover:text-brand-700">Location</a>
-        <a href="#free" class="inline-flex items-center rounded-lg bg-brand-600 text-white px-3 py-2 shadow-soft hover:bg-brand-700">Free Class</a>
-      </nav>
-      <button id="menuBtn" class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg hover:bg-slate-100" aria-label="Open menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200 bg-white">
-      <div class="px-4 py-3 space-y-2 text-sm">
-        <a href="#about" class="block">About</a>
-        <a href="#instructor" class="block">Instructor</a>
-        <a href="#classes" class="block">Classes</a>
-        <a href="#gallery" class="block">Gallery</a>
-        <a href="#videos" class="block">Videos</a>
-        <a href="#location" class="block">Location</a>
-        <a href="#free" class="block font-semibold text-brand-700">Free Class</a>
-      </div>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-brand-50 via-white to-accent-50"></div>
-    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900">Train with Champions</h1>
-        <p class="mt-4 text-lg text-slate-700">Traditional Karate for modern athletes — fitness, focus, and confidence for all ages.</p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#free" class="inline-flex items-center rounded-xl bg-brand-600 text-white px-4 py-2.5 shadow-soft hover:bg-brand-700">Claim a Free Class</a>
-          <a href="#classes" class="inline-flex items-center rounded-xl border border-slate-300 bg-white px-4 py-2.5 hover:bg-slate-100">See Class Times</a>
-        </div>
-      </div>
-      <div class="relative">
-        <div class="aspect-[4/3] rounded-2xl bg-white ring-1 ring-slate-200 shadow-soft overflow-hidden">
-          <img src="assets/hero-karate.jpg" alt="Karate action" class="h-full w-full object-cover"/>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About the Club / Art / Values -->
-  <section id="about" class="py-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-3 gap-8">
-        <div>
-          <h2 class="text-2xl font-extrabold tracking-tight">About the Club</h2>
-          <p class="mt-3 text-slate-700">Karate School of Champions welcomes beginners to competitors. Our programs build strong basics (kihon), kata performance, and sparring skills in a supportive environment.</p>
-        </div>
-        <div class="lg:col-span-2 grid sm:grid-cols-2 gap-6">
-          <div class="rounded-xl bg-white ring-1 ring-slate-200 p-6">
-            <h3 class="font-semibold text-brand-800">What is Karate?</h3>
-            <p class="mt-2 text-sm text-slate-600">Karate is a striking art emphasizing punches, kicks, and open-hand techniques with forms (kata) and controlled sparring (kumite). It developed from Okinawan martial traditions influenced by Japan.</p>
-          </div>
-          <div class="rounded-xl bg-white ring-1 ring-slate-200 p-6">
-            <h3 class="font-semibold text-brand-800">Values</h3>
-            <p class="mt-2 text-sm text-slate-600">Respect • Discipline • Courage • Humility • Excellence.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Instructor -->
-  <section id="instructor" class="py-16 bg-accent-50/50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-extrabold tracking-tight">Head Instructor</h2>
-      <div class="mt-6 grid md:grid-cols-3 gap-8 items-center">
-        <div class="md:col-span-1">
-          <div class="aspect-square rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow-soft">
-            <img src="assets/sensei-ksc.jpg" alt="Sensei portrait" class="h-full w-full object-cover"/>
-          </div>
-        </div>
-        <div class="md:col-span-2">
-          <h3 class="text-xl font-bold">Sensei [Your Name], 4th Dan</h3>
-          <p class="mt-2 text-slate-700">Over 15 years of coaching experience with multiple provincial medalists. Certified instructor and active official.</p>
-          <ul class="mt-3 text-sm text-slate-700 list-disc list-inside">
-            <li>Specialties: kata development, kumite tactics, youth fundamentals</li>
-            <li>Certifications: Instructor L2, First Aid, Safeguarding</li>
-            <li>Contact: <a class="underline text-brand-700" href="mailto:coach@ksc.example">coach@ksc.example</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Class Times -->
-  <section id="classes" class="py-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-extrabold tracking-tight">Class Times</h2>
-      <div class="mt-6 overflow-hidden rounded-xl ring-1 ring-slate-200">
-        <table class="min-w-full divide-y divide-slate-200 text-sm">
-          <thead class="bg-slate-50 text-slate-600">
-            <tr>
-              <th class="px-4 py-3 text-left">Day</th>
-              <th class="px-4 py-3 text-left">Kids (7–12)</th>
-              <th class="px-4 py-3 text-left">Teens</th>
-              <th class="px-4 py-3 text-left">Adults</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-slate-100">
-            <tr><td class="px-4 py-3">Mon</td><td class="px-4 py-3">16:30–17:15</td><td class="px-4 py-3">17:30–18:30</td><td class="px-4 py-3">18:45–20:00</td></tr>
-            <tr><td class="px-4 py-3">Wed</td><td class="px-4 py-3">16:30–17:15</td><td class="px-4 py-3">17:30–18:30</td><td class="px-4 py-3">18:45–20:00</td></tr>
-            <tr><td class="px-4 py-3">Sat</td><td class="px-4 py-3">09:00–09:45</td><td class="px-4 py-3">10:00–11:00</td><td class="px-4 py-3">—</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="mt-3 text-xs text-slate-500">*Times are examples — update to your schedule.</p>
-    </div>
-  </section>
-
-  <!-- Gallery -->
-  <section id="gallery" class="py-16 bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-extrabold tracking-tight">Gallery</h2>
-      <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <img src="https://images.unsplash.com/photo-1603341163025-15c6f9be4c91?q=80&w=900&auto=format&fit=crop" alt="Training" class="h-56 w-full object-cover rounded-xl"/>
-        <img src="https://images.unsplash.com/photo-1580690628502-7e58c5f7f4b5?q=80&w=900&auto=format&fit=crop" alt="Kata" class="h-56 w-full object-cover rounded-xl"/>
-        <img src="https://images.unsplash.com/photo-1544911770-3e43484a3fb1?q=80&w=900&auto=format&fit=crop" alt="Dojo" class="h-56 w-full object-cover rounded-xl"/>
-      </div>
-    </div>
-  </section>
-
-  <!-- Videos -->
-  <section id="videos" class="py-16 bg-accent-50/50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-extrabold tracking-tight">Videos</h2>
-      <div class="mt-6 grid md:grid-cols-2 gap-6">
-        <div class="aspect-video rounded-xl overflow-hidden ring-1 ring-slate-200 shadow-soft">
-          <iframe class="h-full w-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Karate video" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="aspect-video rounded-xl overflow-hidden ring-1 ring-slate-200 shadow-soft">
-          <iframe class="h-full w-full" src="https://www.youtube.com/embed/oHg5SJYRHA0" title="Karate drills" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-      <p class="mt-2 text-xs text-slate-500">Replace with your own YouTube/Vimeo links.</p>
-    </div>
-  </section>
-
-  <!-- Location / Map -->
-  <section id="location" class="py-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-extrabold tracking-tight">Find Us</h2>
-      <p class="mt-2 text-slate-700">123 Dojo Road, Your Suburb, Your City</p>
-      <div class="mt-4 aspect-video rounded-xl overflow-hidden ring-1 ring-slate-200 shadow-soft">
-        <iframe class="h-full w-full" src="https://www.google.com/maps?q=-25.7479,28.2293&hl=en&z=12&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-      </div>
-      <a target="_blank" href="https://maps.google.com/?q=123 Dojo Road" class="mt-3 inline-block underline text-brand-700">Open in Google Maps</a>
-    </div>
-  </section>
-
-  <!-- Free Class CTA -->
-  <section id="free" class="py-16 bg-gradient-to-br from-brand-50 to-accent-50">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="rounded-2xl bg-white p-6 sm:p-8 ring-1 ring-slate-200 shadow-soft">
-        <h2 class="text-2xl font-extrabold tracking-tight">Try One Class Free</h2>
-        <p class="mt-2 text-slate-700">No obligation — come see the dojo and meet the team.</p>
-        <form id="freeFormKSC" class="mt-6 grid sm:grid-cols-2 gap-4 text-sm">
-          <div>
-            <label class="block font-medium">Full name</label>
-            <input required class="mt-1 w-full rounded-lg border-slate-300 focus:border-brand-600 focus:ring-brand-600" placeholder="Your name"/>
-          </div>
-          <div>
-            <label class="block font-medium">Email</label>
-            <input type="email" required class="mt-1 w-full rounded-lg border-slate-300 focus:border-brand-600 focus:ring-brand-600" placeholder="you@example.com"/>
-          </div>
-          <div>
-            <label class="block font-medium">Phone</label>
-            <input type="tel" class="mt-1 w-full rounded-lg border-slate-300 focus:border-brand-600 focus:ring-brand-600" placeholder="+27"/>
-          </div>
-          <div>
-            <label class="block font-medium">Preferred class</label>
-            <select class="mt-1 w-full rounded-lg border-slate-300 focus:border-brand-600 focus:ring-brand-600">
-              <option>Kids</option><option>Teens</option><option>Adults</option>
-            </select>
-          </div>
-          <div class="sm:col-span-2">
-            <button class="w-full inline-flex items-center justify-center rounded-lg bg-brand-600 text-white px-4 py-2.5 font-semibold hover:bg-brand-700">Book My Free Class</button>
-            <p id="freeMsgKSC" class="hidden mt-2 text-brand-700">Thanks! We’ll contact you to confirm.</p>
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <footer class="border-t border-slate-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm text-slate-500">© <span id="yearKSC"></span> Karate School of Champions</div>
-  </footer>
-
-  <script>
-    document.getElementById('menuBtn')?.addEventListener('click',()=>document.getElementById('mobileMenu').classList.toggle('hidden'));
-    document.getElementById('yearKSC').textContent = new Date().getFullYear();
-    document.getElementById('freeFormKSC')?.addEventListener('submit', (e)=>{ e.preventDefault(); localStorage.setItem('ksc_free', 'submitted'); document.getElementById('freeMsgKSC').classList.remove('hidden'); e.target.reset(); });
-  </script>
-</body>
-</html>
-
-
-<!-- ===============================
-FILE: shoto-ryu.html
-Single-page site (HTML + Tailwind + JS)
-Color scheme: Charcoal / Crimson / Ivory
-=================================== -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Shoto‑Ryu Karate Club</title>
-  <meta name="description" content="Shoto‑Ryu Karate Club — instructors, classes, location, and free trial." />
+  <meta name="description" content="Shoto‑Ryu Karate Club in Johannesburg — history, lineage, instructors, seminar calendar, membership options, dojo etiquette, and contact information." />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = { theme:{ extend:{ colors:{ base:'#111827', ivory:'#fafaf9', crimson:{600:'#dc2626',700:'#b91c1c'} }, fontFamily:{ sans:['Inter','system-ui'] }, boxShadow:{ soft:'0 14px 30px -12px rgb(0 0 0 / 0.25)'} } } };
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            base:'#111827',
+            ivory:'#f8f8f5',
+            crimson:{50:'#fef2f2',100:'#fee2e2',200:'#fecaca',300:'#fca5a5',400:'#f87171',500:'#ef4444',600:'#dc2626',700:'#b91c1c',800:'#991b1b',900:'#7f1d1d'},
+            sand:{50:'#f5f5f4',100:'#e7e5e4',200:'#d6d3d1',300:'#a8a29e'}
+          },
+          fontFamily:{ sans:['Inter','system-ui','Segoe UI','Roboto','Helvetica Neue','Arial','sans-serif'], display:['Playfair Display','serif'] },
+          boxShadow:{ soft:'0 16px 40px -18px rgb(15 23 42 / 0.45)', card:'0 20px 44px -24px rgb(15 23 42 / 0.45)'}
+        }
+      }
+    }
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-ivory text-base font-sans">
-  <header class="sticky top-0 z-40 bg-ivory/90 backdrop-blur border-b border-neutral-200">
+  <header class="sticky top-0 z-40 bg-ivory/95 backdrop-blur border-b border-sand-200">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3">
         <img src="assets/association-logo-karate.png" alt="Karate Association" class="h-10 w-10 object-contain" onerror="this.outerHTML='🥋'"/>
-        <img src="assets/shoto-ryu-logo.png" alt="Shoto‑Ryu Logo" class="h-10 w-10 object-contain"/>
-        <span class="font-extrabold tracking-tight">Shoto‑Ryu Karate Club</span>
+        <img src="assets/shoto-ryu-logo.png" alt="Shoto‑Ryu logo" class="h-10 w-10 object-contain" onerror="this.outerHTML='SR'"/>
+        <span class="font-extrabold tracking-tight text-base">Shoto‑Ryu Karate Club</span>
       </a>
       <nav class="hidden md:flex items-center gap-6 text-sm font-semibold">
-        <a href="#about" class="hover:text-crimson-700">About</a>
-        <a href="#sensei" class="hover:text-crimson-700">Sensei</a>
-        <a href="#classes" class="hover:text-crimson-700">Classes</a>
-        <a href="#gallery" class="hover:text-crimson-700">Gallery</a>
-        <a href="#videos" class="hover:text-crimson-700">Videos</a>
-        <a href="#location" class="hover:text-crimson-700">Location</a>
-        <a href="#free" class="inline-flex items-center rounded-lg bg-crimson-600 text-white px-3 py-2 shadow-soft hover:bg-crimson-700">Free Class</a>
+        <a href="#lineage" class="hover:text-crimson-600">Lineage</a>
+        <a href="#programs" class="hover:text-crimson-600">Programs</a>
+        <a href="#instructors" class="hover:text-crimson-600">Instructors</a>
+        <a href="#seminars" class="hover:text-crimson-600">Seminars</a>
+        <a href="#membership" class="hover:text-crimson-600">Membership</a>
+        <a href="#contact" class="hover:text-crimson-600">Contact</a>
+        <a href="#trial" class="inline-flex items-center rounded-lg bg-crimson-600 text-white px-3 py-2 shadow-soft hover:bg-crimson-700">Book Trial</a>
       </nav>
-      <button id="menuBtnSR" class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg hover:bg-neutral-100" aria-label="Open menu">
+      <button id="menuBtn" class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg hover:bg-sand-50" aria-label="Open menu">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
     </div>
-    <div id="mobileMenuSR" class="md:hidden hidden border-t border-neutral-200 bg-ivory">
+    <div id="mobileMenu" class="md:hidden hidden border-t border-sand-200 bg-ivory">
       <div class="px-4 py-3 space-y-2 text-sm">
-        <a href="#about" class="block">About</a>
-        <a href="#sensei" class="block">Sensei</a>
-        <a href="#classes" class="block">Classes</a>
-        <a href="#gallery" class="block">Gallery</a>
-        <a href="#videos" class="block">Videos</a>
-        <a href="#location" class="block">Location</a>
-        <a href="#free" class="block font-semibold text-crimson-700">Free Class</a>
+        <a href="#lineage" class="block">Lineage</a>
+        <a href="#programs" class="block">Programs</a>
+        <a href="#instructors" class="block">Instructors</a>
+        <a href="#seminars" class="block">Seminars</a>
+        <a href="#membership" class="block">Membership</a>
+        <a href="#contact" class="block">Contact</a>
+        <a href="#trial" class="block font-semibold text-crimson-600">Book Trial</a>
       </div>
     </div>
   </header>
 
   <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-neutral-100 via-ivory to-neutral-50"></div>
-    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 grid md:grid-cols-2 gap-10 items-center">
+    <div class="absolute inset-0 bg-gradient-to-br from-sand-50 via-ivory to-crimson-50"></div>
+    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 grid md:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
       <div>
-        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Rooted in Tradition</h1>
-        <p class="mt-4 text-lg text-neutral-700">Shoto‑Ryu Karate balances kata precision and practical self‑defence. Build character, focus, and strength.</p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#free" class="inline-flex items-center rounded-xl bg-crimson-600 text-white px-4 py-2.5 shadow-soft hover:bg-crimson-700">Claim a Free Class</a>
-          <a href="#classes" class="inline-flex items-center rounded-xl border border-neutral-300 bg-white px-4 py-2.5 hover:bg-neutral-100">See Class Times</a>
+        <p class="uppercase tracking-[0.4em] text-xs text-crimson-500">Est. 1987 • Johannesburg</p>
+        <h1 class="mt-4 text-4xl sm:text-5xl font-display font-bold text-base">Rooted in Tradition, Focused on Spirit</h1>
+        <p class="mt-6 text-lg text-base/80">We preserve the Shotokan lineage of Nakayama while competing in modern WKF tournaments. Our dojo cultivates character, etiquette, and excellence from white belt to shodan and beyond.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#trial" class="inline-flex items-center rounded-xl bg-crimson-600 text-white px-5 py-3 shadow-soft hover:bg-crimson-700">Join a Trial Lesson</a>
+          <a href="#dojoTour" class="inline-flex items-center rounded-xl border border-sand-200 bg-white px-5 py-3 hover:bg-sand-50">Plan a Dojo Tour</a>
         </div>
+        <dl class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <div class="rounded-2xl bg-white ring-1 ring-sand-200 p-4 shadow-card text-center">
+            <dt class="text-xs uppercase tracking-wide text-slate-500">Dojo Branches</dt>
+            <dd class="text-2xl font-extrabold text-crimson-600" data-count="3">3</dd>
+          </div>
+          <div class="rounded-2xl bg-white ring-1 ring-sand-200 p-4 shadow-card text-center">
+            <dt class="text-xs uppercase tracking-wide text-slate-500">International Dan Grades</dt>
+            <dd class="text-2xl font-extrabold text-crimson-600" data-count="14">14</dd>
+          </div>
+          <div class="rounded-2xl bg-white ring-1 ring-sand-200 p-4 shadow-card text-center">
+            <dt class="text-xs uppercase tracking-wide text-slate-500">Years Active</dt>
+            <dd class="text-2xl font-extrabold text-crimson-600" data-count="38">38</dd>
+          </div>
+          <div class="rounded-2xl bg-white ring-1 ring-sand-200 p-4 shadow-card text-center">
+            <dt class="text-xs uppercase tracking-wide text-slate-500">Honbu Visits Hosted</dt>
+            <dd class="text-2xl font-extrabold text-crimson-600" data-count="6">6</dd>
+          </div>
+        </dl>
       </div>
       <div class="relative">
-        <div class="aspect-[4/3] rounded-2xl bg-ivory ring-1 ring-neutral-200 shadow-soft overflow-hidden">
-          <img src="assets/hero-shoto.jpg" alt="Karate training" class="h-full w-full object-cover"/>
+        <div class="aspect-[4/3] rounded-3xl bg-white ring-1 ring-sand-200 shadow-card overflow-hidden">
+          <img src="assets/hero-shoto.jpg" alt="Karate training" class="h-full w-full object-cover" onerror="this.outerHTML='<div class=\'h-full w-full flex items-center justify-center text-6xl\'>🥋</div>'" />
+        </div>
+        <div class="absolute -bottom-6 -right-6 bg-base text-white px-6 py-4 rounded-2xl shadow-soft">
+          <p class="text-sm uppercase tracking-wide text-white/60">Next Gasshuku</p>
+          <p class="text-lg font-semibold">8–10 August • Drakensberg</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="about" class="py-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-3 gap-8">
-        <div>
-          <h2 class="text-2xl font-extrabold tracking-tight">About the Club</h2>
-          <p class="mt-3 text-neutral-700">We teach a Shoto‑Ryu lineage: strong basics, kata interpretation, and controlled kumite with emphasis on etiquette and personal growth.</p>
-        </div>
-        <div class="lg:col-span-2 grid sm:grid-cols-2 gap-6">
-          <div class="rounded-xl bg-white ring-1 ring-neutral-200 p-6">
-            <h3 class="font-semibold">Karate Origins</h3>
-            <p class="mt-2 text-sm text-neutral-700">Karate originated in Okinawa and was shaped in mainland Japan. Training blends kihon, kata, and kumite to develop body and mind.</p>
-          </div>
-          <div class="rounded-xl bg-white ring-1 ring-neutral-200 p-6">
-            <h3 class="font-semibold">Values</h3>
-            <p class="mt-2 text-sm text-neutral-700">Respect • Self‑control • Perseverance • Honesty • Courage.</p>
-          </div>
-        </div>
+  <section id="lineage" class="py-16">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-display font-bold text-base">Lineage &amp; Philosophy</h2>
+      <p class="mt-3 text-base/80">Show your connection to the origin of Shoto‑Ryu. Replace portraits with your actual teachers and include notable achievements.</p>
+      <div class="mt-10 grid sm:grid-cols-3 gap-6 text-left">
+        <article class="rounded-3xl bg-white ring-1 ring-sand-200 p-6 shadow-card">
+          <h3 class="text-lg font-semibold text-base">Master Gichin Funakoshi</h3>
+          <p class="mt-2 text-sm text-base/75">Founder of modern Shotokan. Emphasized character building and the dojo kun. Place portrait here.</p>
+        </article>
+        <article class="rounded-3xl bg-white ring-1 ring-sand-200 p-6 shadow-card">
+          <h3 class="text-lg font-semibold text-base">Master Masatoshi Nakayama</h3>
+          <p class="mt-2 text-sm text-base/75">Japan Karate Association Chief Instructor. Developed curriculum we follow.</p>
+        </article>
+        <article class="rounded-3xl bg-white ring-1 ring-sand-200 p-6 shadow-card">
+          <h3 class="text-lg font-semibold text-base">Sensei [Your Teacher]</h3>
+          <p class="mt-2 text-sm text-base/75">Add biography, Dan rank, and connection to Honbu. Mention years guiding our club.</p>
+        </article>
       </div>
-    </div>
-  </section>
-
-  <section id="sensei" class="py-16 bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-extrabold tracking-tight">Sensei</h2>
-      <div class="mt-6 grid md:grid-cols-3 gap-8 items-center">
-        <div class="md:col-span-1">
-          <div class="aspect-square rounded-2xl overflow-hidden ring-1 ring-neutral-200 shadow-soft">
-            <img src="assets/sensei-shoto.jpg" alt="Sensei portrait" class="h-full w-full object-cover"/>
-          </div>
+      <div class="mt-10 grid md:grid-cols-2 gap-6 text-left">
+        <div class="rounded-3xl bg-crimson-600 text-white p-6 shadow-card">
+          <h3 class="text-lg font-semibold">Dojo Kun</h3>
+          <ul class="mt-4 space-y-2 text-sm text-white/90">
+            <li>• Seek perfection of character</li>
+            <li>• Be faithful and sincere</li>
+            <li>• Endeavour</li>
+            <li>• Respect others</li>
+            <li>• Refrain from violent behaviour</li>
+          </ul>
         </div>
-        <div class="md:col-span-2">
-          <h3 class="text-xl font-bold">Sensei [Your Name], 3rd Dan</h3>
-          <p class="mt-2 text-neutral-700">Dedicated to traditional fundamentals and practical application. Students train safely with clear progression.</p>
-          <ul class="mt-3 text-sm text-neutral-700 list-disc list-inside">
-            <li>Focus: kata bunkai, timing & distancing</li>
-            <li>Accredited coach; First Aid & Safeguarding certified</li>
-            <li>Contact: <a class="underline text-crimson-700" href="mailto:info@shotoryu.example">info@shotoryu.example</a></li>
+        <div class="rounded-3xl bg-white ring-1 ring-sand-200 p-6 shadow-card">
+          <h3 class="text-lg font-semibold text-base">Belt Pathway</h3>
+          <p class="mt-3 text-sm text-base/75">Visualise the journey from white to black. Add your grading syllabus PDF and key milestones for each level.</p>
+          <ul class="mt-4 space-y-2 text-sm text-base/75">
+            <li>White → Yellow: Basics &amp; etiquette</li>
+            <li>Orange → Green: Kata Heian series</li>
+            <li>Blue → Brown: Advanced kumite</li>
+            <li>Black: Dan exams with Honbu recognition</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="classes" class="py-16">
+  <section id="programs" class="py-16 bg-sand-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-extrabold tracking-tight">Class Times</h2>
-      <div class="mt-6 overflow-hidden rounded-xl ring-1 ring-neutral-200">
-        <table class="min-w-full divide-y divide-neutral-200 text-sm">
-          <thead class="bg-neutral-50 text-neutral-600"><tr><th class="px-4 py-3 text-left">Day</th><th class="px-4 py-3 text-left">Kids</th><th class="px-4 py-3 text-left">Teens</th><th class="px-4 py-3 text-left">Adults</th></tr></thead>
-          <tbody class="divide-y divide-neutral-100">
-            <tr><td class="px-4 py-3">Tue</td><td class="px-4 py-3">16:30–17:15</td><td class="px-4 py-3">17:30–18:30</td><td class="px-4 py-3">18:45–20:00</td></tr>
-            <tr><td class="px-4 py-3">Thu</td><td class="px-4 py-3">16:30–17:15</td><td class="px-4 py-3">17:30–18:30</td><td class="px-4 py-3">18:45–20:00</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="mt-3 text-xs text-neutral-500">*Example schedule — update with your actual times.</p>
-    </div>
-  </section>
-
-  <section id="gallery" class="py-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-extrabold tracking-tight">Gallery</h2>
-      <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=900&auto=format&fit=crop" class="h-56 w-full object-cover rounded-xl" alt="Dojo"/>
-        <img src="https://images.unsplash.com/photo-1541364983171-a8ba01e95cfc?q=80&w=900&auto=format&fit=crop" class="h-56 w-full object-cover rounded-xl" alt="Karate"/>
-        <img src="https://images.unsplash.com/photo-1544911770-3e43484a3fb1?q=80&w=900&auto=format&fit=crop" class="h-56 w-full object-cover rounded-xl" alt="Training"/>
-      </div>
-    </div>
-  </section>
-
-  <section id="videos" class="py-16 bg-neutral-50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-extrabold tracking-tight">Videos</h2>
-      <div class="mt-6 grid md:grid-cols-2 gap-6">
-        <div class="aspect-video rounded-xl overflow-hidden ring-1 ring-neutral-200 shadow-soft">
-          <iframe class="h-full w-full" src="https://www.youtube.com/embed/ysz5S6PUM-U" title="Karate video" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="aspect-video rounded-xl overflow-hidden ring-1 ring-neutral-200 shadow-soft">
-          <iframe class="h-full w-full" src="https://www.youtube.com/embed/aqz-KE-bpKQ" title="Karate drills" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="location" class="py-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-extrabold tracking-tight">Location</h2>
-      <p class="mt-2 text-neutral-700">456 Dojo Lane, Suburb, City</p>
-      <div class="mt-4 aspect-video rounded-xl overflow-hidden ring-1 ring-neutral-200 shadow-soft">
-        <iframe class="h-full w-full" src="https://www.google.com/maps?q=-26.2041,28.0473&hl=en&z=12&output=embed" loading="lazy"></iframe>
-      </div>
-      <a target="_blank" href="https://maps.google.com/?q=456 Dojo Lane" class="mt-3 inline-block underline text-crimson-700">Open in Google Maps</a>
-    </div>
-  </section>
-
-  <section id="free" class="py-16 bg-gradient-to-br from-neutral-100 to-ivory">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="rounded-2xl bg-white p-6 sm:p-8 ring-1 ring-neutral-200 shadow-soft">
-        <h2 class="text-2xl font-extrabold tracking-tight">One Free Class</h2>
-        <p class="mt-2 text-neutral-700">Experience our training and community — free first session.</p>
-        <form id="freeFormSR" class="mt-6 grid sm:grid-cols-2 gap-4 text-sm">
-          <div><label class="block font-medium">Full name</label><input required class="mt-1 w-full rounded-lg border-neutral-300 focus:border-crimson-700 focus:ring-crimson-700" placeholder="Your name"/></div>
-          <div><label class="block font-medium">Email</label><input type="email" required class="mt-1 w-full rounded-lg border-neutral-300 focus:border-crimson-700 focus:ring-crimson-700" placeholder="you@example.com"/></div>
-          <div><label class="block font-medium">Phone</label><input type="tel" class="mt-1 w-full rounded-lg border-neutral-300 focus:border-crimson-700 focus:ring-crimson-700" placeholder="+27"/></div>
-          <div><label class="block font-medium">Preferred class</label><select class="mt-1 w-full rounded-lg border-neutral-300 focus:border-crimson-700 focus:ring-crimson-700"><option>Kids</option><option>Teens</option><option>Adults</option></select></div>
-          <div class="sm:col-span-2"><button class="w-full inline-flex items-center justify-center rounded-lg bg-crimson-600 text-white px-4 py-2.5 font-semibold hover:bg-crimson-700">Book My Free Class</button><p id="freeMsgSR" class="hidden mt-2 text-crimson-700">Thanks! We’ll contact you to confirm.</p></div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <footer class="border-t border-neutral-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm text-neutral-500">© <span id="yearSR"></span> Shoto‑Ryu Karate Club</div>
-  </footer>
-
-  <script>
-    document.getElementById('menuBtnSR')?.addEventListener('click',()=>document.getElementById('mobileMenuSR').classList.toggle('hidden'));
-    document.getElementById('yearSR').textContent = new Date().getFullYear();
-    document.getElementById('freeFormSR')?.addEventListener('submit', (e)=>{ e.preventDefault(); localStorage.setItem('shotoryu_free', 'submitted'); document.getElementById('freeMsgSR').classList.remove('hidden'); e.target.reset(); });
-  </script>
-</body>
-</html>
-
-
-<!-- ===============================
-FILE: pretoria-martial-arts.html
-Single-page site (HTML + Tailwind + JS)
-Color scheme: Deep Blue / Gold (Judo)
-=================================== -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Pretoria Martial Arts — Judo</title>
-  <meta name="description" content="Pretoria Martial Arts — Judo classes, instructors, location, and a free trial." />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { theme:{ extend:{ colors:{ deep:{50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a'}, gold:{50:'#fffbeb',100:'#fef3c7',200:'#fde68a',300:'#fcd34d',400:'#fbbf24',500:'#f59e0b'} }, fontFamily:{ sans:['Inter','system-ui'] }, boxShadow:{ soft:'0 14px 30px -12px rgb(0 0 0 / 0.25)'} } } };
-  </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-</head>
-<body class="bg-white text-slate-800 font-sans">
-  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3">
-        <img src="assets/association-logo-judo.png" alt="Judo Association" class="h-10 w-10 object-contain" onerror="this.outerHTML='🥋'"/>
-        <img src="assets/pma-logo.png" alt="Pretoria Martial Arts Logo" class="h-10 w-10 object-contain"/>
-        <span class="font-extrabold tracking-tight">Pretoria Martial Arts — Judo</span>
-      </a>
-      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold">
-        <a href="#about" class="hover:text-deep-700">About</a>
-        <a href="#coach" class="hover:text-deep-700">Coach</a>
-        <a href="#classes" class="hover:text-deep-700">Classes</a>
-        <a href="#gallery" class="hover:text-deep-700">Gallery</a>
-        <a href="#videos" class="hover:text-deep-700">Videos</a>
-        <a href="#location" class="hover:text-deep-700">Location</a>
-        <a href="#free" class="inline-flex items-center rounded-lg bg-gold-500 text-slate-900 px-3 py-2 shadow-soft hover:bg-gold-400">Free Class</a>
-      </nav>
-      <button id="menuBtnPMA" class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-lg hover:bg-slate-100" aria-label="Open menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-    <div id="mobileMenuPMA" class="md:hidden hidden border-t border-slate-200 bg-white">
-      <div class="px-4 py-3 space-y-2 text-sm">
-        <a href="#about" class="block">About</a>
-        <a href="#coach" class="block">Coach</a>
-        <a href="#classes" class="block">Classes</a>
-        <a href="#gallery" class="block">Gallery</a>
-        <a href="#videos" class="block">Videos</a>
-        <a href="#location" class="block">Location</a>
-        <a href="#free" class="block font-semibold text-deep-700">Free Class</a>
-      </div>
-    </div>
-  </header>
-
-  <section class="relative overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-deep-50 via-white to-gold-50"></div>
-    <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 grid md:grid-cols-2 gap-10 items-center">
-      <div>
-        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900">Judo for All</h1>
-        <p class="mt-4 text-lg text-slate-700">Learn throws, holds, and groundwork in a safe, supportive dojo. Fitness, discipline, and respect.</p>
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="#free" class="inline-flex items-center rounded-xl bg-gold-500 text-slate-900 px-4 py-2.5 shadow-soft hover:bg-gold-400">Free Trial Class</a>
-          <a href="#classes" class="inline-flex items-center rounded-xl border border-slate-300 bg-white px-4 py-2.5 hover:bg-slate-100">See Class Times</a>
-        </div>
-      </div>
-      <div class="relative">
-        <div class="aspect-[4/3] rounded-2xl bg-white ring-1 ring-slate-200 shadow-soft overflow-hidden">
-          <img src="assets/hero-judo.jpg" alt="Judo action" class="h-full w-full object-cover"/>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="about" class="py-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-3 gap-8">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
         <div>
-          <h2 class="text-2xl font-extrabold tracking-tight">About the Club</h2>
-          <p class="mt-3 text-slate-700">Pretoria Martial Arts is a community dojo focused on safe, progressive Judo training for kids, teens, and adults — from beginners to competitive players.</p>
+          <h2 class="text-3xl font-display font-bold text-base">Choose your training path</h2>
+          <p class="mt-2 text-base/75">Select a program to view focus areas, recommended schedule, and support resources.</p>
         </div>
-        <div class="lg:col-span-2 grid sm:grid-cols-2 gap-6">
-          <div class="rounded-xl bg-white ring-1 ring-slate-200 p-6">
-            <h3 class="font-semibold text-deep-800">What is Judo?</h3>
-            <p class="mt-2 text-sm text-slate-600">Judo is a Japanese grappling art founded by Jigoro Kano in 1882. It focuses on throws, pins, chokes, and joint locks under strict safety rules, emphasizing mutual welfare and benefit.</p>
-          </div>
-          <div class="rounded-xl bg-white ring-1 ring-slate-200 p-6">
-            <h3 class="font-semibold text-deep-800">Values</h3>
-            <p class="mt-2 text-sm text-slate-600">Respect • Courtesy • Courage • Self‑control • Friendship.</p>
-          </div>
+        <div class="inline-flex rounded-xl border border-sand-200 bg-white p-1 text-sm font-semibold">
+          <button class="progBtn px-4 py-2 rounded-lg" data-program="foundation">Foundation</button>
+          <button class="progBtn px-4 py-2 rounded-lg" data-program="kata">Kata Lab</button>
+          <button class="progBtn px-4 py-2 rounded-lg" data-program="kumite">Kumite Squad</button>
+          <button class="progBtn px-4 py-2 rounded-lg" data-program="zen">Zen Conditioning</button>
         </div>
+      </div>
+      <div id="programPanel" class="mt-10 grid lg:grid-cols-[1fr_0.9fr] gap-10"></div>
+    </div>
+  </section>
+
+  <section id="instructors" class="py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-display font-bold text-base">Instructor cadre</h2>
+      <p class="mt-2 text-base/75">Introduce your teaching team with Dan rankings, safeguarding certificates, and contact details.</p>
+      <div id="instructorGrid" class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      <div class="mt-10 rounded-3xl bg-base text-white p-6 shadow-card grid md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="text-lg font-semibold">Instructor development</h3>
+          <p class="mt-3 text-sm text-white/80">Highlight mentorship, assistant instructor program, and continuing education. Add application form link.</p>
+        </div>
+        <ul class="space-y-2 text-sm text-white/80">
+          <li>• Annual instructor gasshuku with Honbu guest</li>
+          <li>• Safeguarding &amp; first aid recertification</li>
+          <li>• Mentorship for aspiring female instructors</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <section id="coach" class="py-16 bg-deep-50/50">
+  <section id="dojoTour" class="py-16 bg-ivory">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[0.85fr_1.15fr] gap-10 items-center">
+      <div>
+        <h2 class="text-3xl font-display font-bold text-base">Dojo tour &amp; etiquette</h2>
+        <p class="mt-3 text-base/80">Upload a welcome video or 360° photo to showcase your dojo layout. Prepare newcomers with etiquette tips.</p>
+        <ol class="mt-6 space-y-3 text-sm text-base/75 list-decimal list-inside">
+          <li>Bow at the entrance — “Osu!” to the shomen</li>
+          <li>Keep gi clean, fingernails trimmed, and jewellery removed</li>
+          <li>Respect the line-up order by grade and seniority</li>
+          <li>Arrive 10 minutes early to help prepare the dojo</li>
+        </ol>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="rounded-3xl bg-sand-100 h-48 flex items-center justify-center text-sand-300 text-sm font-semibold">Insert front dojo photo</div>
+        <div class="rounded-3xl bg-sand-100 h-48 flex items-center justify-center text-sand-300 text-sm font-semibold">Insert honbu certificate photo</div>
+        <div class="rounded-3xl bg-sand-100 h-48 flex items-center justify-center text-sand-300 text-sm font-semibold">Insert class in session</div>
+        <div class="rounded-3xl bg-sand-100 h-48 flex items-center justify-center text-sand-300 text-sm font-semibold">Insert kids class</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="seminars" class="py-16 bg-sand-50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-extrabold tracking-tight">Head Coach</h2>
-      <div class="mt-6 grid md:grid-cols-3 gap-8 items-center">
-        <div class="md:col-span-1">
-          <div class="aspect-square rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow-soft">
-            <img src="assets/coach-judo.jpg" alt="Coach portrait" class="h-full w-full object-cover"/>
-          </div>
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <div>
+          <h2 class="text-3xl font-display font-bold text-base">Seminars &amp; special events</h2>
+          <p class="mt-2 text-base/75">Share upcoming gasshuku, dan gradings, and interclub exchanges. Add booking forms or ticket links.</p>
         </div>
-        <div class="md:col-span-2">
-          <h3 class="text-xl font-bold">Coach [Your Name], 2nd Dan</h3>
-          <p class="mt-2 text-slate-700">Experienced coach with a focus on fundamentals, ukemi (safe falling), and positive competition culture.</p>
-          <ul class="mt-3 text-sm text-slate-700 list-disc list-inside">
-            <li>Specialties: nage‑waza basics, newaza transitions</li>
-            <li>Certifications: National Coaching Cert, First Aid</li>
-            <li>Contact: <a class="underline text-deep-700" href="mailto:coach@pretoriajudo.example">coach@pretoriajudo.example</a></li>
+        <div class="flex gap-3 text-sm">
+          <input id="seminarSearch" type="search" placeholder="Search seminars" class="rounded-lg border border-sand-200 px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-crimson-400" />
+          <select id="seminarFilter" class="rounded-lg border border-sand-200 px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-crimson-400">
+            <option value="all">All types</option>
+            <option value="gasshuku">Gasshuku</option>
+            <option value="grading">Dan grading</option>
+            <option value="workshop">Workshop</option>
+          </select>
+        </div>
+      </div>
+      <div id="seminarGrid" class="mt-8 grid md:grid-cols-2 gap-6"></div>
+      <div class="mt-8 text-center">
+        <button id="addToCalendar" class="inline-flex items-center gap-2 rounded-lg border border-sand-200 bg-white px-4 py-2 text-sm hover:bg-sand-100">
+          <svg class="h-5 w-5 text-crimson-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          Download full calendar (.ics)
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section id="membership" class="py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl font-display font-bold text-base">Membership &amp; investment</h2>
+        <p class="mt-3 text-base/75">Outline fees, joining process, and value. Update currency and benefits to match your club.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <article class="rounded-3xl bg-white ring-1 ring-sand-200 p-6 shadow-card">
+          <h3 class="text-sm uppercase tracking-wide text-slate-500">Beginner Intro</h3>
+          <p class="mt-2 text-3xl font-extrabold text-crimson-600">R520<span class="text-base font-semibold text-slate-500">/month</span></p>
+          <ul class="mt-4 space-y-3 text-sm text-base/80">
+            <li>2 sessions weekly</li>
+            <li>Uniform package discount</li>
+            <li>Free etiquette workshop</li>
+          </ul>
+          <a href="#trial" class="mt-6 inline-flex items-center justify-center rounded-lg bg-crimson-600 text-white px-4 py-2 text-sm hover:bg-crimson-700">Start trial</a>
+        </article>
+        <article class="rounded-3xl bg-base text-white p-6 shadow-card">
+          <div class="inline-flex items-center gap-2 text-xs uppercase tracking-wide bg-white/10 px-3 py-1 rounded-full">Dojo favourite</div>
+          <p class="mt-3 text-3xl font-extrabold">R690<span class="text-base font-semibold text-white/70">/month</span></p>
+          <ul class="mt-4 space-y-3 text-sm text-white/80">
+            <li>Unlimited classes at all branches</li>
+            <li>Competition coaching &amp; travel planning</li>
+            <li>Video kata feedback monthly</li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-flex items-center justify-center rounded-lg bg-white text-base px-4 py-2 text-sm font-semibold hover:bg-sand-100">Join dojo</a>
+        </article>
+        <article class="rounded-3xl bg-white ring-1 ring-sand-200 p-6 shadow-card">
+          <h3 class="text-sm uppercase tracking-wide text-slate-500">Family &amp; Corporate</h3>
+          <p class="mt-2 text-lg font-semibold text-crimson-600">Custom packages</p>
+          <ul class="mt-4 space-y-3 text-sm text-base/80">
+            <li>Family discounts 3+</li>
+            <li>Corporate wellness sessions</li>
+            <li>Private coaching / 1:1 kata polishing</li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-flex items-center justify-center rounded-lg border border-crimson-200 text-crimson-600 px-4 py-2 text-sm hover:bg-crimson-50">Request proposal</a>
+        </article>
+      </div>
+      <p class="mt-4 text-xs text-center text-base/60">Add joining fee, grading fee, and competition levy information where relevant.</p>
+    </div>
+  </section>
+
+  <section id="trial" class="py-16 bg-sand-50">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl bg-white ring-1 ring-sand-200 p-8 shadow-card grid md:grid-cols-2 gap-8">
+        <div>
+          <h2 class="text-3xl font-display font-bold text-base">Book a complimentary intro</h2>
+          <p class="mt-3 text-base/80">We pair you with the best class for your goals. Families can include multiple participants in one booking.</p>
+          <ul class="mt-4 space-y-2 text-sm text-base/75">
+            <li>• Wear comfortable clothes (gi optional)</li>
+            <li>• Please bring water &amp; towel</li>
+            <li>• Arrive 10 minutes before the class</li>
           </ul>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="classes" class="py-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-extrabold tracking-tight">Class Times</h2>
-      <div class="mt-6 overflow-hidden rounded-xl ring-1 ring-slate-200">
-        <table class="min-w-full divide-y divide-slate-200 text-sm">
-          <thead class="bg-slate-50 text-slate-600"><tr><th class="px-4 py-3 text-left">Day</th><th class="px-4 py-3 text-left">Kids</th><th class="px-4 py-3 text-left">Teens</th><th class="px-4 py-3 text-left">Adults</th></tr></thead>
-          <tbody class="divide-y divide-slate-100">
-            <tr><td class="px-4 py-3">Mon</td><td class="px-4 py-3">17:00–17:45</td><td class="px-4 py-3">18:00–19:00</td><td class="px-4 py-3">19:15–20:30</td></tr>
-            <tr><td class="px-4 py-3">Wed</td><td class="px-4 py-3">17:00–17:45</td><td class="px-4 py-3">18:00–19:00</td><td class="px-4 py-3">19:15–20:30</td></tr>
-            <tr><td class="px-4 py-3">Sat</td><td class="px-4 py-3">09:00–09:45</td><td class="px-4 py-3">10:00–11:00</td><td class="px-4 py-3">—</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="mt-3 text-xs text-slate-500">*Example schedule — update with your actual times.</p>
-    </div>
-  </section>
-
-  <section id="gallery" class="py-16 bg-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-extrabold tracking-tight">Gallery</h2>
-      <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-        <img src="https://images.unsplash.com/photo-1549057446-9f5c6ac91a04?q=80&w=900&auto=format&fit=crop" class="h-56 w-full object-cover rounded-xl" alt="Randori"/>
-        <img src="https://images.unsplash.com/photo-1582446681522-5a8f7f52e05f?q=80&w=900&auto=format&fit=crop" class="h-56 w-full object-cover rounded-xl" alt="Training"/>
-        <img src="https://images.unsplash.com/photo-156089989-123456789?ixlib=rb-4.0.3&q=80&w=900&auto=format&fit=crop" class="h-56 w-full object-cover rounded-xl" alt="Dojo" onerror="this.src='https://images.unsplash.com/photo-1544911770-3e43484a3fb1?q=80&w=900&auto=format&fit=crop'"/>
-      </div>
-    </div>
-  </section>
-
-  <section id="videos" class="py-16 bg-deep-50/50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-extrabold tracking-tight">Videos</h2>
-      <div class="mt-6 grid md:grid-cols-2 gap-6">
-        <div class="aspect-video rounded-xl overflow-hidden ring-1 ring-slate-200 shadow-soft">
-          <iframe class="h-full w-full" src="https://www.youtube.com/embed/9AThycGCakk" title="Judo video" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="aspect-video rounded-xl overflow-hidden ring-1 ring-slate-200 shadow-soft">
-          <iframe class="h-full w-full" src="https://www.youtube.com/embed/tAGnKpE4NCI" title="Judo drills" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="location" class="py-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-extrabold tracking-tight">Location</h2>
-      <p class="mt-2 text-slate-700">789 Dojo Street, Pretoria</p>
-      <div class="mt-4 aspect-video rounded-xl overflow-hidden ring-1 ring-slate-200 shadow-soft">
-        <iframe class="h-full w-full" src="https://www.google.com/maps?q=-25.7479,28.2293&hl=en&z=12&output=embed" loading="lazy"></iframe>
-      </div>
-      <a target="_blank" href="https://maps.google.com/?q=789 Dojo Street Pretoria" class="mt-3 inline-block underline text-deep-700">Open in Google Maps</a>
-    </div>
-  </section>
-
-  <section id="free" class="py-16 bg-gradient-to-br from-deep-50 to-gold-50">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="rounded-2xl bg-white p-6 sm:p-8 ring-1 ring-slate-200 shadow-soft">
-        <h2 class="text-2xl font-extrabold tracking-tight">Book a Free Judo Class</h2>
-        <p class="mt-2 text-slate-700">Try a session on us — meet the team and experience Judo.</p>
-        <form id="freeFormPMA" class="mt-6 grid sm:grid-cols-2 gap-4 text-sm">
-          <div><label class="block font-medium">Full name</label><input required class="mt-1 w-full rounded-lg border-slate-300 focus:border-deep-700 focus:ring-deep-700" placeholder="Your name"/></div>
-          <div><label class="block font-medium">Email</label><input type="email" required class="mt-1 w-full rounded-lg border-slate-300 focus:border-deep-700 focus:ring-deep-700" placeholder="you@example.com"/></div>
-          <div><label class="block font-medium">Phone</label><input type="tel" class="mt-1 w-full rounded-lg border-slate-300 focus:border-deep-700 focus:ring-deep-700" placeholder="+27"/></div>
-          <div><label class="block font-medium">Preferred class</label><select class="mt-1 w-full rounded-lg border-slate-300 focus:border-deep-700 focus:ring-deep-700"><option>Kids</option><option>Teens</option><option>Adults</option></select></div>
-          <div class="sm:col-span-2"><button class="w-full inline-flex items-center justify-center rounded-lg bg-deep-700 text-white px-4 py-2.5 font-semibold hover:bg-deep-800">Book My Free Class</button><p id="freeMsgPMA" class="hidden mt-2 text-deep-700">Thanks! We’ll contact you to confirm.</p></div>
+        <form id="trialForm" class="space-y-4 text-sm">
+          <div>
+            <label class="block font-semibold text-base">Name</label>
+            <input name="name" required class="mt-1 w-full rounded-lg border-sand-200 focus:border-crimson-600 focus:ring-crimson-600" placeholder="Your full name"/>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-semibold text-base">Email</label>
+              <input name="email" type="email" required class="mt-1 w-full rounded-lg border-sand-200 focus:border-crimson-600 focus:ring-crimson-600" placeholder="you@example.com"/>
+            </div>
+            <div>
+              <label class="block font-semibold text-base">Phone</label>
+              <input name="phone" type="tel" required class="mt-1 w-full rounded-lg border-sand-200 focus:border-crimson-600 focus:ring-crimson-600" placeholder="+27"/>
+            </div>
+          </div>
+          <div>
+            <label class="block font-semibold text-base">Preferred branch</label>
+            <select name="branch" class="mt-1 w-full rounded-lg border-sand-200 focus:border-crimson-600 focus:ring-crimson-600">
+              <option>Johannesburg North</option>
+              <option>Sandton</option>
+              <option>Roodepoort</option>
+            </select>
+          </div>
+          <div>
+            <label class="block font-semibold text-base">Participants &amp; ages</label>
+            <textarea name="participants" rows="3" class="mt-1 w-full rounded-lg border-sand-200 focus:border-crimson-600 focus:ring-crimson-600" placeholder="Kai (12) — competition focus"></textarea>
+          </div>
+          <div>
+            <label class="block font-semibold text-base">Training goals</label>
+            <textarea name="goals" rows="3" class="mt-1 w-full rounded-lg border-sand-200 focus:border-crimson-600 focus:ring-crimson-600" placeholder="Fitness, kata excellence, self-defence..."></textarea>
+          </div>
+          <button class="w-full inline-flex items-center justify-center rounded-lg bg-crimson-600 text-white px-4 py-2.5 font-semibold hover:bg-crimson-700">Submit request</button>
+          <p id="trialMsg" class="hidden text-sm font-semibold text-crimson-600">Arigatō! We will confirm your intro session shortly.</p>
         </form>
       </div>
     </div>
   </section>
 
-  <footer class="border-t border-slate-200">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm text-slate-500">© <span id="yearPMA"></span> Pretoria Martial Arts — Judo</div>
+  <section id="testimonials" class="py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+        <div>
+          <h2 class="text-3xl font-display font-bold text-base">Voices from the dojo</h2>
+          <p class="mt-2 text-base/75">Highlight stories from parents, black belts, and partner schools. Add portrait shots for authenticity.</p>
+        </div>
+        <div class="flex gap-3">
+          <button id="prevTestimonial" class="h-10 w-10 rounded-full border border-sand-200 bg-white flex items-center justify-center hover:bg-sand-100" aria-label="Previous testimonial">‹</button>
+          <button id="nextTestimonial" class="h-10 w-10 rounded-full border border-sand-200 bg-white flex items-center justify-center hover:bg-sand-100" aria-label="Next testimonial">›</button>
+        </div>
+      </div>
+      <div id="testimonialCard" class="mt-10 rounded-3xl bg-white ring-1 ring-sand-200 p-8 shadow-card"></div>
+    </div>
+  </section>
+
+  <section id="contact" class="py-16 bg-base text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[0.85fr_1.15fr] gap-10">
+      <div>
+        <h2 class="text-3xl font-display font-bold">Visit the honbu dojo</h2>
+        <p class="mt-3 text-sm text-white/70">45 Martial Way, Johannesburg North. Secure parking, change rooms, and spectator lounge.</p>
+        <div class="mt-6 space-y-3 text-sm text-white/80">
+          <div>📞 <a class="underline decoration-dotted" href="tel:+27110000000">+27 (0)11 000 0000</a></div>
+          <div>📧 <a class="underline decoration-dotted" href="mailto:info@shotoryu.example">info@shotoryu.example</a></div>
+          <div>📱 <a class="underline decoration-dotted" href="#">Instagram</a> · <a class="underline decoration-dotted" href="#">Facebook</a> · <a class="underline decoration-dotted" href="#">YouTube</a></div>
+          <div>🕒 Mon–Thu 16:00–21:00 • Sat 08:30–12:00</div>
+        </div>
+        <div class="mt-8">
+          <label class="block text-sm font-semibold text-white">Download dojo rules (PDF)</label>
+          <a href="assets/dojo-rules.pdf" class="mt-2 inline-flex items-center gap-2 rounded-lg border border-white/30 px-4 py-2 text-sm hover:bg-white/10">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v12m0 0l-3-3m3 3l3-3M4 20h16"/></svg>
+            Download PDF
+          </a>
+        </div>
+      </div>
+      <div class="rounded-3xl overflow-hidden ring-1 ring-white/30 shadow-card">
+        <iframe class="h-96 w-full" src="https://www.google.com/maps?q=-26.1457,28.0419&hl=en&z=13&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-sand-200 bg-ivory">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-base/70">
+      <div>© <span id="year"></span> Shoto‑Ryu Karate Club. All rights reserved.</div>
+      <div class="flex items-center gap-4">
+        <a href="#lineage" class="hover:text-base">Lineage</a>
+        <a href="#membership" class="hover:text-base">Membership</a>
+        <a href="#trial" class="hover:text-base">Trial</a>
+      </div>
+    </div>
   </footer>
 
   <script>
-    document.getElementById('menuBtnPMA')?.addEventListener('click',()=>document.getElementById('mobileMenuPMA').classList.toggle('hidden'));
-    document.getElementById('yearPMA').textContent = new Date().getFullYear();
-    document.getElementById('freeFormPMA')?.addEventListener('submit', (e)=>{ e.preventDefault(); localStorage.setItem('pma_free', 'submitted'); document.getElementById('freeMsgPMA').classList.remove('hidden'); e.target.reset(); });
+    const programData = {
+      foundation:{
+        title:'Traditional Foundation',
+        summary:'Structured kihon, kata Heian, and kumite basics. Ideal for beginners and lower kyu grades.',
+        highlights:[
+          'Weekly focus cards for each technique',
+          'Line-up etiquette coaching for parents &amp; students',
+          'Includes quarterly white-yellow belt workshops'
+        ],
+        resources:['Printable syllabus PDF','Beginner terminology audio guide','Uniform tying video tutorial']
+      },
+      kata:{
+        title:'Kata Laboratory',
+        summary:'Advanced kata study with bunkai exploration and video feedback led by our kata specialists.',
+        highlights:[
+          'Video recording station with slow-motion analysis',
+          'Pair work on bunkai interpretations',
+          'Competition kata strategy sessions'
+        ],
+        resources:['Kata library (YouTube playlist)','Judge feedback template','Entry checklist for tournaments']
+      },
+      kumite:{
+        title:'Kumite Squad',
+        summary:'WKF-style sparring drills, tactical planning, and conditioning for competition athletes.',
+        highlights:[
+          'Heart rate monitored drills',
+          'Specialist guest coaches each quarter',
+          'Travel logistics &amp; sponsorship pack support'
+        ],
+        resources:['Strength program PDF','Weight management guidelines','Tournament calendar']
+      },
+      zen:{
+        title:'Zen Conditioning',
+        summary:'Breathing, meditation, and functional strength sessions blending karate and mindful practice.',
+        highlights:[
+          'Mobility &amp; recovery routines',
+          'Mindfulness exercises led by certified coach',
+          'Stress management toolkit for exams'
+        ],
+        resources:['Guided meditation MP3','Home stretching poster','Monthly wellness email']
+      }
+    };
+
+    const instructors = [
+      { name:'Shihan Ken Matsuda', rank:'7th Dan JKA', role:'Chief Instructor', bio:'Certified with the Japan Karate Association. Oversees grading standards and annual gasshuku.', email:'shihan@shotoryu.example', phone:'+27 82 000 1000', photo:'assets/shihan-ken.jpg' },
+      { name:'Sensei Lerato Mokoena', rank:'4th Dan', role:'Dojo Head', bio:'National champion (2018 kumite) and WKF international coach. Leads competition squad.', email:'lerato@shotoryu.example', phone:'+27 82 000 2000', photo:'assets/sensei-lerato.jpg' },
+      { name:'Sensei David Smith', rank:'3rd Dan', role:'Kata Specialist', bio:'Multiple SA kata titles. Provides video feedback and technique workshops.', email:'david@shotoryu.example', phone:'+27 82 000 3000', photo:'' },
+      { name:'Sensei Nomusa Khuzwayo', rank:'2nd Dan', role:'Youth Development', bio:'Former school teacher focusing on junior classes, discipline, and safeguarding.', email:'nomusa@shotoryu.example', phone:'+27 82 000 4000', photo:'' },
+      { name:'Coach Michel Naidoo', rank:'1st Dan', role:'Zen Conditioning', bio:'Certified yoga &amp; strength coach integrating mindful conditioning for teens and adults.', email:'michel@shotoryu.example', phone:'+27 82 000 5000', photo:'assets/coach-michel.jpg' },
+      { name:'Admin: Carla Kruger', rank:'', role:'Membership Support', bio:'Handles onboarding, debit orders, and seminar registrations.', email:'admin@shotoryu.example', phone:'+27 11 000 6000', photo:'' }
+    ];
+
+    const testimonials = [
+      { name:'Parent: Zanele P.', role:'Mom of brown belt twin sisters', quote:'“The instructors combine discipline and warmth perfectly. My daughters have grown confident and focused at school.”', photo:'assets/testimonial-zanele.jpg' },
+      { name:'Sensei Ayumi (Tokyo Honbu)', role:'Visiting instructor', quote:'“Your dojo maintains impeccable etiquette while embracing innovation. Students welcomed me like family.”', photo:'assets/testimonial-ayumi.jpg' },
+      { name:'Corporate Partner: HealthCo', role:'Wellness manager', quote:'“Their corporate sessions improved employee morale. The mindfulness sessions were a highlight.”', photo:'assets/testimonial-healthco.jpg' }
+    ];
+
+    const seminars = [
+      { id:'s1', title:'Winter Gasshuku', date:'2025-07-05', type:'gasshuku', venue:'Johannesburg North Honbu', coach:'Shihan Ken Matsuda', img:'assets/seminar1.jpg', description:'Three-day intensive with kihon, kata, kumite sessions. Add registration link.' },
+      { id:'s2', title:'Sandton Branch Open Day', date:'2025-08-12', type:'workshop', venue:'Sandton Dojo', coach:'Sensei Lerato', img:'assets/seminar2.jpg', description:'Bring-a-friend event with beginners intro. Add RSVP link.' },
+      { id:'s3', title:'Dan Grading Preparation', date:'2025-09-09', type:'grading', venue:'Honbu Dojo', coach:'Shihan Ken &amp; Sensei David', img:'assets/seminar3.jpg', description:'Mock gradings, paperwork check, and kata polishing.' },
+      { id:'s4', title:'Women in Karate Summit', date:'2025-11-16', type:'workshop', venue:'Roodepoort Dojo', coach:'Sensei Nomusa', img:'assets/seminar4.jpg', description:'Empowerment, self-defence, and networking for female karateka.' }
+    ];
+
+    const programPanel = document.getElementById('programPanel');
+    const instructorGrid = document.getElementById('instructorGrid');
+    const testimonialCard = document.getElementById('testimonialCard');
+    const seminarGrid = document.getElementById('seminarGrid');
+
+    function renderProgram(key){
+      const data = programData[key] || programData.foundation;
+      programPanel.innerHTML = `
+        <div class="space-y-4">
+          <h3 class="text-2xl font-semibold text-base">${data.title}</h3>
+          <p class="text-base/80">${data.summary}</p>
+          <ul class="space-y-3 text-sm text-base/75">
+            ${data.highlights.map(item=>`<li class="flex gap-3"><span class="text-crimson-500">◆</span><span>${item}</span></li>`).join('')}
+          </ul>
+        </div>
+        <div class="rounded-3xl bg-white ring-1 ring-sand-200 p-6 shadow-card">
+          <h4 class="text-lg font-semibold text-base">Resources to share</h4>
+          <p class="mt-2 text-sm text-base/70">Link to Google Drive folders, WhatsApp groups, or printouts for this program.</p>
+          <ul class="mt-4 space-y-3 text-sm text-base/75">
+            ${data.resources.map(item=>`<li class="flex gap-2"><span>⬖</span><span>${item}</span></li>`).join('')}
+          </ul>
+        </div>`;
+      document.querySelectorAll('.progBtn').forEach(btn => {
+        const on = btn.dataset.program === key;
+        btn.className = `progBtn px-4 py-2 rounded-lg transition ${on ? 'bg-crimson-600 text-white shadow-soft' : 'text-base/70 hover:bg-sand-100'}`;
+      });
+    }
+
+    function renderInstructors(){
+      instructorGrid.innerHTML = instructors.map(member => `
+        <article class="rounded-3xl bg-white ring-1 ring-sand-200 p-6 shadow-card flex flex-col gap-4">
+          <div class="flex items-center gap-4">
+            <div class="h-16 w-16 rounded-full overflow-hidden ring-2 ring-crimson-100 bg-sand-100 flex items-center justify-center text-lg font-semibold text-crimson-600">
+              ${member.photo ? `<img src="${member.photo}" alt="${member.name}" class="h-full w-full object-cover" onerror="this.parentElement.textContent='${member.name.split(' ').map(n=>n[0]).join('').slice(0,2)}'"/>` : member.name.split(' ').map(n=>n[0]).join('').slice(0,2)}
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-wide text-base/60">${member.role}</p>
+              <h3 class="text-lg font-semibold text-base">${member.name}</h3>
+              <p class="text-xs text-base/60">${member.rank}</p>
+            </div>
+          </div>
+          <p class="text-sm text-base/75">${member.bio}</p>
+          <div class="mt-auto text-xs text-base/60 space-y-1">
+            <div>📧 <a class="underline" href="mailto:${member.email}">${member.email}</a></div>
+            ${member.phone ? `<div>📞 <a class="underline" href="tel:${member.phone.replace(/\s/g,'')}">${member.phone}</a></div>` : ''}
+          </div>
+        </article>`).join('');
+    }
+
+    let testimonialIndex = 0;
+    function renderTestimonial(){
+      const t = testimonials[testimonialIndex];
+      testimonialCard.innerHTML = `
+        <div class="flex flex-col lg:flex-row lg:items-center gap-6">
+          <div class="h-20 w-20 rounded-full overflow-hidden bg-sand-100 flex-shrink-0 flex items-center justify-center text-crimson-600 text-xl font-semibold">
+            ${t.photo ? `<img src="${t.photo}" alt="${t.name}" class="h-full w-full object-cover" onerror="this.parentElement.textContent='${t.name.split(' ').map(n=>n[0]).join('').slice(0,2)}'"/>` : t.name.split(' ').map(n=>n[0]).join('').slice(0,2)}
+          </div>
+          <div>
+            <p class="text-lg font-semibold text-base">${t.name}</p>
+            <p class="text-sm text-base/60">${t.role}</p>
+            <p class="mt-4 text-base/75 leading-relaxed">${t.quote}</p>
+          </div>
+        </div>`;
+    }
+
+    function renderSeminars(){
+      const term = (document.getElementById('seminarSearch').value || '').toLowerCase();
+      const type = document.getElementById('seminarFilter').value;
+      const filtered = seminars.filter(item => {
+        const matchesTerm = item.title.toLowerCase().includes(term) || item.coach.toLowerCase().includes(term) || item.venue.toLowerCase().includes(term);
+        const matchesType = type === 'all' || item.type === type;
+        return matchesTerm && matchesType;
+      }).sort((a,b)=> new Date(a.date) - new Date(b.date));
+      seminarGrid.innerHTML = filtered.map(item => `
+        <article class="rounded-3xl bg-white ring-1 ring-sand-200 p-6 shadow-card flex flex-col gap-4">
+          <div class="aspect-video rounded-2xl overflow-hidden bg-sand-100">
+            <img src="${item.img}" alt="${item.title}" class="h-full w-full object-cover" onerror="this.style.display='none'" />
+          </div>
+          <div class="text-xs uppercase tracking-wide text-base/60">${item.type.toUpperCase()} · ${new Date(item.date).toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'})}</div>
+          <h3 class="text-lg font-semibold text-base">${item.title}</h3>
+          <p class="text-sm text-base/70">${item.description}</p>
+          <div class="mt-auto text-xs text-base/60">Venue: ${item.venue} · Coach: ${item.coach}</div>
+          <a href="#contact" class="inline-flex items-center gap-2 text-sm text-crimson-600 underline">Request booking</a>
+        </article>`).join('');
+    }
+
+    document.getElementById('menuBtn')?.addEventListener('click', ()=> document.getElementById('mobileMenu').classList.toggle('hidden'));
+
+    document.querySelectorAll('.progBtn').forEach(btn => btn.addEventListener('click', ()=> renderProgram(btn.dataset.program)));
+
+    document.getElementById('prevTestimonial')?.addEventListener('click', ()=>{ testimonialIndex = (testimonialIndex - 1 + testimonials.length) % testimonials.length; renderTestimonial(); });
+    document.getElementById('nextTestimonial')?.addEventListener('click', ()=>{ testimonialIndex = (testimonialIndex + 1) % testimonials.length; renderTestimonial(); });
+
+    document.getElementById('trialForm')?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target).entries());
+      localStorage.setItem('shotoryu_trial', JSON.stringify({ ...data, date:new Date().toISOString() }));
+      document.getElementById('trialMsg').classList.remove('hidden');
+      e.target.reset();
+    });
+
+    document.getElementById('seminarSearch').addEventListener('input', renderSeminars);
+    document.getElementById('seminarFilter').addEventListener('change', renderSeminars);
+    document.getElementById('addToCalendar').addEventListener('click', ()=>{
+      const ics = seminars.map(item => `BEGIN:VEVENT\nSUMMARY:${item.title}\nDTSTART:${item.date.replace(/-/g,'')}\nLOCATION:${item.venue}\nDESCRIPTION:${item.description}\nEND:VEVENT`).join('\n');
+      const blob = new Blob([`BEGIN:VCALENDAR\nVERSION:2.0\n${ics}\nEND:VCALENDAR`], { type:'text/calendar' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'shotoryu-calendar.ics';
+      link.click();
+      URL.revokeObjectURL(url);
+    });
+
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const target = Number(el.dataset.count || el.textContent);
+      let current = 0;
+      const step = Math.max(1, Math.round(target / 40));
+      const interval = setInterval(()=>{
+        current += step;
+        if(current >= target){ current = target; clearInterval(interval); }
+        el.textContent = current;
+      }, 40);
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    renderProgram('foundation');
+    renderInstructors();
+    renderTestimonial();
+    renderSeminars();
+
+    try {
+      if(localStorage.getItem('shotoryu_trial')){
+        document.getElementById('trialMsg').classList.remove('hidden');
+      }
+    } catch(err) { console.error(err); }
   </script>
 </body>
 </html>

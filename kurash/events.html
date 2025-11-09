@@ -3,42 +3,137 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Events — Kurash South Africa</title>
-  <meta name="description" content="Events by Kurash South Africa." />
+  <meta name="description" content="Kurash South Africa events and courses." />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { theme: { extend: {
       colors: { kgreen:{700:'#047857'}, kblue:{700:'#1d4ed8'} },
-      fontFamily: { sans:['Inter','system-ui'] }
+      fontFamily: { sans:['Inter','system-ui'] },
+      boxShadow:{ card:'0 16px 36px -20px rgb(15 23 42 / 0.35)'}
     } } };
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="font-sans bg-white text-slate-800">
-  <header class="h-56 md:h-72 w-full relative overflow-hidden">
+  <header class="h-60 md:h-72 w-full relative overflow-hidden">
     <img id="hero" class="absolute inset-0 h-full w-full object-cover" alt="">
-    <div class="absolute inset-0 bg-black/40"></div>
-    <div class="relative max-w-4xl mx-auto px-4 h-full flex items-end pb-6">
-      <h1 id="titleHero" class="text-3xl md:text-4xl font-extrabold text-white drop-shadow">Events</h1>
+    <div class="absolute inset-0 bg-black/45"></div>
+    <div class="relative max-w-5xl mx-auto px-4 h-full flex items-end pb-8">
+      <div>
+        <a href="index.html" class="text-xs uppercase tracking-[0.3em] text-white/70">Kurash South Africa</a>
+        <h1 id="titleHero" class="mt-2 text-3xl md:text-4xl font-extrabold text-white drop-shadow">Events</h1>
+      </div>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4 py-8">
-    <article id="article" class="prose max-w-none"></article>
-    <a href="index.html#updates" class="inline-block mt-8 underline text-kblue-700">← Back to Updates</a>
+  <main class="max-w-5xl mx-auto px-4 py-10 grid lg:grid-cols-[minmax(0,1fr)_18rem] gap-10">
+    <article id="article" class="prose prose-slate max-w-none"></article>
+    <aside class="space-y-6">
+      <section class="rounded-3xl bg-slate-50 p-5 ring-1 ring-slate-200">
+        <h2 class="text-sm font-semibold text-slate-700 uppercase tracking-wide">Event facts</h2>
+        <ul id="facts" class="mt-3 text-sm text-slate-600 space-y-2"></ul>
+      </section>
+      <section class="rounded-3xl bg-slate-50 p-5 ring-1 ring-slate-200">
+        <h2 class="text-sm font-semibold text-slate-700 uppercase tracking-wide">Register</h2>
+        <div id="register" class="mt-3 text-sm text-slate-600 space-y-2"></div>
+      </section>
+      <section class="rounded-3xl bg-slate-50 p-5 ring-1 ring-slate-200">
+        <h2 class="text-sm font-semibold text-slate-700 uppercase tracking-wide">Share</h2>
+        <div class="mt-3 flex flex-col gap-2 text-sm">
+          <button class="shareBtn inline-flex items-center gap-2 rounded-lg bg-kgreen-700 text-white px-3 py-2" data-network="mailto">Email invite</button>
+          <button class="shareBtn inline-flex items-center gap-2 rounded-lg border border-slate-300 px-3 py-2" data-network="whatsapp">Share on WhatsApp</button>
+          <button class="shareBtn inline-flex items-center gap-2 rounded-lg border border-slate-300 px-3 py-2" data-network="copy">Copy link</button>
+        </div>
+      </section>
+    </aside>
   </main>
+
+  <div class="max-w-5xl mx-auto px-4 pb-10">
+    <a href="index.html#updates" class="inline-flex items-center gap-2 text-sm text-kblue-700 underline">← Back to Updates</a>
+  </div>
 
   <script>
     const id = new URLSearchParams(location.search).get('id');
     const data = {
-      e1:{title:'Gauteng Open',date:'2025-11-08',img:'assets/event1.jpg',body:'Full event info, draw, weigh-in times…'},
-      e2:{title:'Coach Level 1 Course',date:'2025-11-22',img:'assets/event2.jpg',body:'Full course schedule, venue, requirements…'}
+      e1:{
+        title:'Gauteng Open',
+        date:'2025-11-08',
+        img:'assets/event1.jpg',
+        venue:'Johannesburg Indoor Arena',
+        tag:'Tournament',
+        schedule:`<p>U15 to Senior divisions. Weigh-in Friday 17:00–19:00. Competition day starts 08:30 with opening ceremony.</p>
+                  <h2>Documents</h2>
+                  <ul><li>Technical handbook — refereeing protocols</li><li>Draw schedule published 5 November</li><li>Coaches briefing at 07:30 on event day</li></ul>`,
+        facts:[
+          {label:'Entries close',value:'28 Oct 2025'},
+          {label:'Weigh-in',value:'7 Nov • 17:00–19:00'},
+          {label:'Entry fee',value:'R250 per athlete'},
+          {label:'Contact',value:'events@kurashsa.org'}
+        ],
+        register:[{label:'Submit entries (Google Form)',href:'#'},{label:'Download invitation (PDF)',href:'assets/gauteng-open-invite.pdf'}]
+      },
+      e2:{
+        title:'Coach Level 1 Course',
+        date:'2025-11-22',
+        img:'assets/event2.jpg',
+        venue:'Pretoria High Performance Centre',
+        tag:'Coaching Course',
+        schedule:`<p>One-day blended course combining online pre-learning and practical sessions.</p>
+                  <h2>Agenda</h2>
+                  <ol><li>08:00 Registration &amp; welcome</li><li>09:00 Fundamental kurash pedagogy</li><li>11:30 Safeguarding workshop</li><li>14:00 Practical evaluation</li><li>16:30 Certification briefing</li></ol>`,
+        facts:[
+          {label:'Prerequisite',value:'Active club member, first aid certificate'},
+          {label:'Capacity',value:'30 coaches'},
+          {label:'Fee',value:'R650 (includes manual)'},
+          {label:'Contact',value:'coaching@kurashsa.org'}
+        ],
+        register:[{label:'Register online',href:'#'},{label:'Course manual preview',href:'assets/coach-course-manual.pdf'}]
+      },
+      e3:{
+        title:'Schools Festival',
+        date:'2025-09-18',
+        img:'assets/event3.jpg',
+        venue:'Durban Youth Centre',
+        tag:'Development',
+        schedule:`<p>Introductory festival for schools participating in the Kurash Youth Programme.</p>
+                  <p>Includes movement stations, friendly bouts, and coach Q&amp;A for educators.</p>`,
+        facts:[
+          {label:'Who can attend?',value:'Schools in pilot programme'},
+          {label:'Session times',value:'09:00–13:00'},
+          {label:'Equipment',value:'Mats and belts supplied'},
+          {label:'Contact',value:'youth@kurashsa.org'}
+        ],
+        register:[{label:'RSVP list',href:'#'}]
+      }
     };
-    const a = data[id] || {title:'Not found',date:'',img:'',body:'This item does not exist.'};
-    hero.src = a.img || '';
-    titleHero.textContent = a.title || 'Events';
-    article.innerHTML = `<div class="text-xs text-slate-500">${a.date}</div>
-                         <h2 class="text-2xl font-bold mt-1">${a.title}</h2>
-                         <p class="mt-4">${a.body}</p>`;
+
+    const record = data[id] || { title:'Not found', date:'', img:'', venue:'', tag:'', schedule:'<p>This event does not exist.</p>', facts:[], register:[] };
+
+    document.getElementById('hero').src = record.img || '';
+    document.getElementById('titleHero').textContent = record.title || 'Events';
+    document.getElementById('article').innerHTML = `
+      <p class="text-sm text-slate-500">${record.tag ? record.tag + ' · ' : ''}${record.date ? new Date(record.date).toLocaleDateString(undefined,{year:'numeric',month:'long',day:'numeric'}) : ''}</p>
+      <h2 class="text-2xl font-bold">${record.title}</h2>
+      <p class="text-sm text-slate-500">Venue: ${record.venue || 'TBC'}</p>
+      ${record.schedule}`;
+
+    const facts = document.getElementById('facts');
+    facts.innerHTML = record.facts?.length ? record.facts.map(item => `<li><span class="font-semibold text-slate-700">${item.label}:</span> ${item.value}</li>`).join('') : '<li class="text-xs text-slate-400">Event details coming soon.</li>';
+
+    const register = document.getElementById('register');
+    register.innerHTML = record.register?.length ? record.register.map(item => `<a class="block underline text-kblue-700" href="${item.href}">${item.label}</a>`).join('') : '<p class="text-xs text-slate-400">Registration not available yet.</p>';
+
+    document.querySelectorAll('.shareBtn').forEach(btn => btn.addEventListener('click', () => {
+      const url = location.href;
+      const subject = encodeURIComponent(record.title);
+      if(btn.dataset.network === 'mailto'){
+        location.href = `mailto:?subject=${subject}&body=${encodeURIComponent(url)}`;
+      } else if(btn.dataset.network === 'whatsapp'){
+        window.open(`https://wa.me/?text=${encodeURIComponent(record.title + ' - ' + url)}`,'_blank');
+      } else {
+        navigator.clipboard?.writeText(url).then(()=> alert('Link copied to clipboard.'));
+      }
+    }));
   </script>
 </body>
 </html>

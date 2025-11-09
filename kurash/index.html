@@ -4,35 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kurash South Africa</title>
-  <meta name="description" content="Official site of Kurash South Africa: news, events, achievements, and leadership." />
-
-  <!-- Tailwind (CDN) -->
+  <meta name="description" content="Official site of Kurash South Africa — leadership, programs, updates, resources, provincial contacts, and partnerships." />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            giwhite: '#ffffff',
-            kgreen: { 50:'#ecfdf5', 100:'#d1fae5', 200:'#a7f3d0', 300:'#6ee7b7', 400:'#34d399', 500:'#10b981', 600:'#059669', 700:'#047857', 800:'#065f46', 900:'#064e3b' },
-            kblue:  { 50:'#eff6ff', 100:'#dbeafe', 200:'#bfdbfe', 300:'#93c5fd', 400:'#60a5fa', 500:'#3b82f6', 600:'#2563eb', 700:'#1d4ed8', 800:'#1e40af', 900:'#1e3a8a' }
+            giwhite:'#ffffff',
+            kgreen:{50:'#ecfdf5',100:'#d1fae5',200:'#a7f3d0',300:'#6ee7b7',400:'#34d399',500:'#10b981',600:'#059669',700:'#047857',800:'#065f46',900:'#064e3b'},
+            kblue:{50:'#eff6ff',100:'#dbeafe',200:'#bfdbfe',300:'#93c5fd',400:'#60a5fa',500:'#3b82f6',600:'#2563eb',700:'#1d4ed8',800:'#1e40af',900:'#1e3a8a'},
+            kslate:'#0f172a'
           },
-          boxShadow: { soft: '0 14px 30px -12px rgb(0 0 0 / 0.25)' },
-          fontFamily: { sans: ['Inter','system-ui','Segoe UI','Roboto','Helvetica Neue','Arial','sans-serif'] }
+          fontFamily:{ sans:['Inter','system-ui','Segoe UI','Roboto','Helvetica Neue','Arial','sans-serif'] },
+          boxShadow:{ soft:'0 22px 48px -24px rgb(15 23 42 / 0.35)', card:'0 18px 44px -22px rgb(2 132 199 / 0.3)'}
         }
       }
     }
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body class="font-sans text-slate-800 bg-giwhite">
-  <!-- Header -->
-  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       <a href="#" class="flex items-center gap-3">
-        <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-kgreen-100 text-kgreen-700 shadow-soft">🥋</span>
+        <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-kgreen-100 text-kgreen-700 shadow-soft text-2xl">🥋</span>
         <div class="leading-tight">
           <div class="font-extrabold tracking-tight">Kurash South Africa</div>
           <div class="text-xs text-slate-500">White • Green • Blue</div>
@@ -40,9 +38,12 @@
       </a>
       <nav class="hidden md:flex items-center gap-6 text-sm font-semibold">
         <a href="#about" class="hover:text-kblue-700">About</a>
+        <a href="#strategic" class="hover:text-kblue-700">Strategy</a>
         <a href="#org" class="hover:text-kblue-700">Leadership</a>
         <a href="#updates" class="hover:text-kblue-700">Updates</a>
-        <a href="#contact" class="hover:text-kblue-700">Contact</a>
+        <a href="#resources" class="hover:text-kblue-700">Resources</a>
+        <a href="#provinces" class="hover:text-kblue-700">Provinces</a>
+        <a href="#contact" class="inline-flex items-center rounded-lg bg-kgreen-600 text-white px-3 py-2 shadow-soft hover:bg-kgreen-700">Contact</a>
       </nav>
       <button id="menuBtn" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg hover:bg-slate-100" aria-label="Open menu">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -51,84 +52,198 @@
     <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200 bg-white">
       <div class="px-4 py-3 space-y-2 text-sm">
         <a href="#about" class="block">About</a>
+        <a href="#strategic" class="block">Strategy</a>
         <a href="#org" class="block">Leadership</a>
         <a href="#updates" class="block">Updates</a>
-        <a href="#contact" class="block">Contact</a>
+        <a href="#resources" class="block">Resources</a>
+        <a href="#provinces" class="block">Provinces</a>
+        <a href="#contact" class="block font-semibold text-kgreen-700">Contact</a>
       </div>
     </div>
   </header>
 
-  <!-- Hero (big logo space) -->
   <section class="relative overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-kgreen-50 via-giwhite to-kblue-50"></div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 grid md:grid-cols-2 gap-12 items-center">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 grid md:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
       <div>
-        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900">Kurash South Africa</h1>
-        <p class="mt-4 text-lg text-slate-700 max-w-xl">Official home of Kurash in South Africa. Follow national news, events, achievements, and meet the leadership guiding the sport.</p>
+        <p class="uppercase tracking-[0.35em] text-xs text-kgreen-500">Official National Federation</p>
+        <h1 class="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight text-kslate">Kurash South Africa</h1>
+        <p class="mt-6 text-lg text-slate-700 max-w-2xl">Growing kurash from grassroots to elite athletes across the country. Explore national events, coaching pathways, and provincial leadership contacts.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#updates" class="inline-flex items-center rounded-xl bg-kgreen-600 text-white px-5 py-3 shadow-soft hover:bg-kgreen-700">Latest Updates</a>
+          <a href="#resources" class="inline-flex items-center rounded-xl border border-slate-300 bg-white px-5 py-3 hover:bg-slate-100">Download Policies</a>
+        </div>
+        <dl class="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <div class="rounded-2xl bg-white ring-1 ring-slate-200 p-4 shadow-card text-center">
+            <dt class="text-xs uppercase tracking-wide text-slate-500">Affiliated clubs</dt>
+            <dd class="text-2xl font-extrabold text-kgreen-600" data-count="24">24</dd>
+          </div>
+          <div class="rounded-2xl bg-white ring-1 ring-slate-200 p-4 shadow-card text-center">
+            <dt class="text-xs uppercase tracking-wide text-slate-500">Certified coaches</dt>
+            <dd class="text-2xl font-extrabold text-kgreen-600" data-count="58">58</dd>
+          </div>
+          <div class="rounded-2xl bg-white ring-1 ring-slate-200 p-4 shadow-card text-center">
+            <dt class="text-xs uppercase tracking-wide text-slate-500">Referees</dt>
+            <dd class="text-2xl font-extrabold text-kgreen-600" data-count="21">21</dd>
+          </div>
+          <div class="rounded-2xl bg-white ring-1 ring-slate-200 p-4 shadow-card text-center">
+            <dt class="text-xs uppercase tracking-wide text-slate-500">International medals</dt>
+            <dd class="text-2xl font-extrabold text-kgreen-600" data-count="7">7</dd>
+          </div>
+        </dl>
       </div>
       <div class="relative">
-        <div class="aspect-square rounded-2xl bg-white ring-1 ring-slate-200 shadow-soft p-6 flex items-center justify-center">
-          <div class="text-center">
-            <!-- Replace the circle with your actual <img src="/path/logo.png" alt="Kurash SA logo" class="h-40 w-40 rounded-full object-cover ring-2 ring-kgreen-400"> -->
-            <div class="mx-auto h-48 w-48 rounded-full ring-2 ring-kgreen-400 flex items-center justify-center text-6xl overflow-hidden bg-kgreen-50">
-              <span>🥋</span>
-            </div>
-            <p class="mt-4 text-sm text-slate-500">Place your official logo here (min 600×600).</p>
+        <div class="aspect-square rounded-3xl bg-white ring-1 ring-slate-200 shadow-card p-6 flex items-center justify-center">
+          <div class="text-center space-y-4">
+            <div class="mx-auto h-48 w-48 rounded-full ring-2 ring-kgreen-400 flex items-center justify-center text-6xl overflow-hidden bg-kgreen-50">🥋</div>
+            <p class="text-sm text-slate-500">Replace with your federation crest (600 × 600 px).</p>
           </div>
+        </div>
+        <div class="absolute -bottom-6 -right-6 bg-kblue-600 text-white px-6 py-4 rounded-2xl shadow-soft">
+          <p class="text-sm uppercase tracking-wide text-white/80">Next national event</p>
+          <p class="text-lg font-semibold">National Championships • 21 Sep</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About -->
   <section id="about" class="py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-3 gap-8">
-        <p class="lg:col-span-1 text-slate-700">We develop and promote Kurash across South Africa, aligning with continental and international federations. Our pillars are participation growth, safe competitions, and high-performance pathways.</p>
-        <div class="lg:col-span-2 grid sm:grid-cols-2 gap-6">
-          <div class="rounded-xl bg-white ring-1 ring-slate-200 p-6">
-            <h3 class="font-semibold text-kgreen-800">Mission</h3>
-            <p class="mt-2 text-sm text-slate-600">Grow Kurash participation and deliver fair, safe, inclusive competitions nationwide.</p>
+      <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
+        <div>
+          <h2 class="text-3xl font-extrabold tracking-tight text-kslate">About Kurash South Africa</h2>
+          <p class="mt-3 text-slate-700">We drive kurash participation nationally through inclusive development programmes, coaching education, and international representation. Align with continental and world federations through our governance standards.</p>
+          <ul class="mt-6 space-y-3 text-sm text-slate-700">
+            <li>✔️ National federation recognised by SASCOC</li>
+            <li>✔️ Athlete pathway: schools → provinces → Team SA</li>
+            <li>✔️ Safeguarding &amp; anti-doping policies aligned with WADA</li>
+          </ul>
+        </div>
+        <div class="rounded-3xl bg-white ring-1 ring-slate-200 p-6 shadow-card grid sm:grid-cols-2 gap-4">
+          <div>
+            <h3 class="text-lg font-semibold text-kblue-800">Mission</h3>
+            <p class="mt-2 text-sm text-slate-600">Grow kurash participation across all provinces, providing equitable access to training, competition, and leadership roles.</p>
           </div>
-          <div class="rounded-xl bg-white ring-1 ring-slate-200 p-6">
-            <h3 class="font-semibold text-kgreen-800">Values</h3>
-            <p class="mt-2 text-sm text-slate-600">Respect, Discipline, Courage, Integrity, Community.</p>
+          <div>
+            <h3 class="text-lg font-semibold text-kblue-800">Values</h3>
+            <p class="mt-2 text-sm text-slate-600">Respect, discipline, courage, community, excellence.</p>
           </div>
-          <div class="rounded-xl bg-white ring-1 ring-slate-200 p-6">
-            <h3 class="font-semibold text-kgreen-800">Pathways</h3>
-            <p class="mt-2 text-sm text-slate-600">Clear athlete, coach, and referee development with certification and ranking.</p>
+          <div>
+            <h3 class="text-lg font-semibold text-kblue-800">Pathways</h3>
+            <p class="mt-2 text-sm text-slate-600">Athlete, coach, and referee development with certification and ranking systems.</p>
           </div>
-          <div class="rounded-xl bg-white ring-1 ring-slate-200 p-6">
-            <h3 class="font-semibold text-kgreen-800">Safeguarding</h3>
-            <p class="mt-2 text-sm text-slate-600">We commit to safe sport policies and athlete welfare.</p>
+          <div>
+            <h3 class="text-lg font-semibold text-kblue-800">Safeguarding</h3>
+            <p class="mt-2 text-sm text-slate-600">Safe sport policies, background checks, and reporting channels for all members.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Leadership (large avatars; name, role, contact) -->
-  <section id="org" class="py-16 bg-kgreen-50/40">
+  <section id="strategic" class="py-16 bg-kblue-50/50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-extrabold tracking-tight">Leadership</h2>
-      <p class="mt-2 text-slate-700">Executive, commissions, and provincial leads. Replace photos/emails with your own.</p>
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl font-extrabold tracking-tight text-kslate">Strategic priorities 2025–2027</h2>
+        <p class="mt-3 text-slate-700">Use this roadmap to communicate priorities to stakeholders. Replace bullet points with your official plan.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-3 gap-6">
+        <article class="rounded-3xl bg-white ring-1 ring-slate-200 p-6 shadow-card">
+          <h3 class="text-lg font-semibold text-kgreen-700">Grassroots expansion</h3>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li>• School programmes in 6 provinces</li>
+            <li>• Provincial development grants</li>
+            <li>• National festival for U13 athletes</li>
+          </ul>
+        </article>
+        <article class="rounded-3xl bg-white ring-1 ring-slate-200 p-6 shadow-card">
+          <h3 class="text-lg font-semibold text-kgreen-700">Coach &amp; referee education</h3>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li>• Level 1 &amp; 2 accreditation calendar</li>
+            <li>• Mentorship for female officials</li>
+            <li>• E-learning platform launch</li>
+          </ul>
+        </article>
+        <article class="rounded-3xl bg-white ring-1 ring-slate-200 p-6 shadow-card">
+          <h3 class="text-lg font-semibold text-kgreen-700">High-performance</h3>
+          <ul class="mt-4 space-y-2 text-sm text-slate-600">
+            <li>• Team SA selection policy</li>
+            <li>• International training camps</li>
+            <li>• Sports science &amp; support team</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
 
+  <section id="org" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+        <div>
+          <h2 class="text-3xl font-extrabold tracking-tight text-kslate">Leadership directory</h2>
+          <p class="mt-2 text-slate-700">Search or filter to find executive, commission, or provincial contacts.</p>
+        </div>
+        <div class="flex flex-wrap gap-3 text-sm">
+          <input id="orgSearch" type="search" placeholder="Search name or role" class="rounded-lg border border-slate-200 px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-kgreen-400" />
+          <select id="orgFilter" class="rounded-lg border border-slate-200 px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-kgreen-400">
+            <option value="all">All sections</option>
+          </select>
+        </div>
+      </div>
       <div id="orgWrap" class="mt-8 space-y-10"></div>
     </div>
   </section>
 
-  <!-- Updates (News / Events / Achievements) with image previews -->
-  <section id="updates" class="py-16">
+  <section id="programmes" class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between flex-wrap gap-3">
-        <h2 class="text-2xl font-extrabold tracking-tight">Updates</h2>
-        <div class="inline-flex rounded-lg border border-slate-300 bg-white p-1">
-          <button data-tab="news" class="tabBtn px-3 py-2 text-sm rounded-md font-semibold">News</button>
-          <button data-tab="events" class="tabBtn px-3 py-2 text-sm rounded-md font-semibold">Events</button>
-          <button data-tab="achievements" class="tabBtn px-3 py-2 text-sm rounded-md font-semibold">Achievements</button>
+      <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
+        <div>
+          <h2 class="text-3xl font-extrabold tracking-tight text-kslate">Development programmes</h2>
+          <p class="mt-3 text-slate-700">Provide clear pathways for athletes, coaches, referees, and administrators. Replace descriptions with actual programme info.</p>
+          <ul class="mt-6 space-y-3 text-sm text-slate-700">
+            <li>✔️ Youth academies in Gauteng, KwaZulu-Natal, Western Cape</li>
+            <li>✔️ National referee mentorship with quarterly webinars</li>
+            <li>✔️ Women &amp; Girls in Kurash initiative with safe sport training</li>
+          </ul>
+        </div>
+        <div class="rounded-3xl bg-white ring-1 ring-slate-200 p-6 shadow-card grid sm:grid-cols-2 gap-4 text-sm text-slate-700">
+          <div>
+            <h3 class="text-lg font-semibold text-kblue-800">Athlete ladder</h3>
+            <p class="mt-2">Clubs → provincial squads → national training camps → continental &amp; world events.</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-kblue-800">Coach education</h3>
+            <p class="mt-2">Level 1 (club), Level 2 (provincial), Level 3 (elite). Add calendar &amp; registration links.</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-kblue-800">Schools programme</h3>
+            <p class="mt-2">Toolkit with PE lesson plans, teacher workshops, and equipment support.</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-kblue-800">Funding &amp; grants</h3>
+            <p class="mt-2">Outline travel subsidies, equipment grants, and sponsor partnerships.</p>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
 
+  <section id="updates" class="py-16 bg-kgreen-50/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+        <div>
+          <h2 class="text-3xl font-extrabold tracking-tight text-kslate">Updates</h2>
+          <p class="mt-2 text-slate-700">Browse news, events, and achievements. Use filters or search for quick access.</p>
+        </div>
+        <div class="flex flex-wrap gap-3 text-sm">
+          <input id="updateSearch" type="search" placeholder="Search updates" class="rounded-lg border border-slate-200 px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-kblue-400" />
+          <div class="inline-flex rounded-xl border border-slate-200 bg-white p-1">
+            <button data-tab="news" class="tabBtn px-3 py-2 text-sm rounded-md font-semibold">News</button>
+            <button data-tab="events" class="tabBtn px-3 py-2 text-sm rounded-md font-semibold">Events</button>
+            <button data-tab="achievements" class="tabBtn px-3 py-2 text-sm rounded-md font-semibold">Achievements</button>
+          </div>
+        </div>
+      </div>
       <div id="updatesGrid" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
       <div class="mt-6 text-center">
         <button id="loadMoreBtn" class="hidden inline-flex items-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm hover:bg-slate-50">Load more</button>
@@ -136,27 +251,108 @@
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="py-16 bg-kblue-50/40">
+  <section id="resources" class="py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl font-extrabold tracking-tight">Contact</h2>
-      <div class="mt-6 grid md:grid-cols-2 gap-8 items-start">
-        <div class="rounded-xl bg-white ring-1 ring-slate-200 p-6">
-          <p class="text-slate-700">For general queries, partnerships, or competition information:</p>
-          <div class="mt-4 space-y-2 text-sm">
-            <div>📧 <a class="underline text-kblue-700" href="mailto:info@kurashsa.org">info@kurashsa.org</a></div>
-            <div>📍 South Africa (national body)</div>
-            <div>📱 Socials: <a href="#" class="underline text-kblue-700">Instagram</a> · <a href="#" class="underline text-kblue-700">Facebook</a> · <a href="#" class="underline text-kblue-700">YouTube</a></div>
-          </div>
+      <h2 class="text-3xl font-extrabold tracking-tight text-kslate">Resources &amp; downloads</h2>
+      <p class="mt-2 text-slate-700">Provide official documents, policies, and forms. Update links to your actual files.</p>
+      <div class="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <article class="rounded-3xl bg-white ring-1 ring-slate-200 p-6 shadow-card">
+          <h3 class="text-lg font-semibold text-kgreen-700">Constitution &amp; Governance</h3>
+          <p class="mt-2 text-sm text-slate-600">Download the latest constitution and governance handbook.</p>
+          <a href="assets/kurash-constitution.pdf" class="mt-4 inline-flex items-center gap-2 text-sm text-kgreen-700 underline">Download PDF</a>
+        </article>
+        <article class="rounded-3xl bg-white ring-1 ring-slate-200 p-6 shadow-card">
+          <h3 class="text-lg font-semibold text-kgreen-700">Safeguarding Policy</h3>
+          <p class="mt-2 text-sm text-slate-600">Child protection, reporting procedures, and contact list.</p>
+          <a href="assets/safeguarding-policy.pdf" class="mt-4 inline-flex items-center gap-2 text-sm text-kgreen-700 underline">Download PDF</a>
+        </article>
+        <article class="rounded-3xl bg-white ring-1 ring-slate-200 p-6 shadow-card">
+          <h3 class="text-lg font-semibold text-kgreen-700">Tournament Handbook</h3>
+          <p class="mt-2 text-sm text-slate-600">Competition rules, weigh-in protocols, and entry forms.</p>
+          <a href="assets/tournament-handbook.pdf" class="mt-4 inline-flex items-center gap-2 text-sm text-kgreen-700 underline">Download PDF</a>
+        </article>
+        <article class="rounded-3xl bg-white ring-1 ring-slate-200 p-6 shadow-card">
+          <h3 class="text-lg font-semibold text-kgreen-700">Brand Toolkit</h3>
+          <p class="mt-2 text-sm text-slate-600">Logos, colour palette, and social media templates.</p>
+          <a href="assets/brand-toolkit.zip" class="mt-4 inline-flex items-center gap-2 text-sm text-kgreen-700 underline">Download ZIP</a>
+        </article>
+        <article class="rounded-3xl bg-white ring-1 ring-slate-200 p-6 shadow-card">
+          <h3 class="text-lg font-semibold text-kgreen-700">Membership Forms</h3>
+          <p class="mt-2 text-sm text-slate-600">Club affiliation and athlete registration forms (fillable PDFs).</p>
+          <a href="assets/membership-forms.zip" class="mt-4 inline-flex items-center gap-2 text-sm text-kgreen-700 underline">Download ZIP</a>
+        </article>
+        <article class="rounded-3xl bg-white ring-1 ring-slate-200 p-6 shadow-card">
+          <h3 class="text-lg font-semibold text-kgreen-700">Media Pack</h3>
+          <p class="mt-2 text-sm text-slate-600">Press release templates, image gallery, and contact details.</p>
+          <a href="assets/media-pack.zip" class="mt-4 inline-flex items-center gap-2 text-sm text-kgreen-700 underline">Download ZIP</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="partners" class="py-16 bg-kblue-50/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl font-extrabold tracking-tight text-kslate">Partners &amp; supporters</h2>
+        <p class="mt-3 text-slate-700">Replace placeholders with logos of sponsors, sport bodies, and community partners.</p>
+      </div>
+      <div class="mt-10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div class="h-24 rounded-2xl bg-white ring-1 ring-slate-200 shadow-card flex items-center justify-center text-slate-400 text-xs">Add logo</div>
+        <div class="h-24 rounded-2xl bg-white ring-1 ring-slate-200 shadow-card flex items-center justify-center text-slate-400 text-xs">Add logo</div>
+        <div class="h-24 rounded-2xl bg-white ring-1 ring-slate-200 shadow-card flex items-center justify-center text-slate-400 text-xs">Add logo</div>
+        <div class="h-24 rounded-2xl bg-white ring-1 ring-slate-200 shadow-card flex items-center justify-center text-slate-400 text-xs">Add logo</div>
+        <div class="h-24 rounded-2xl bg-white ring-1 ring-slate-200 shadow-card flex items-center justify-center text-slate-400 text-xs">Add logo</div>
+        <div class="h-24 rounded-2xl bg-white ring-1 ring-slate-200 shadow-card flex items-center justify-center text-slate-400 text-xs">Add logo</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="provinces" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+        <div>
+          <h2 class="text-3xl font-extrabold tracking-tight text-kslate">Provincial structures</h2>
+          <p class="mt-2 text-slate-700">Contact your regional lead for membership, events, and development queries.</p>
         </div>
-        <div class="rounded-xl bg-white ring-1 ring-slate-200 p-6">
-          <p class="text-sm text-slate-600">Directories:</p>
-          <ul class="mt-3 text-sm list-disc list-inside text-slate-700">
-            <li><a class="underline text-kgreen-700" href="news.html">News directory</a></li>
-            <li><a class="underline text-kgreen-700" href="events.html">Events directory</a></li>
-            <li><a class="underline text-kgreen-700" href="achievements.html">Achievements directory</a></li>
+        <div class="text-sm text-slate-500">Update emails and phone numbers with current committee details.</div>
+      </div>
+      <div id="provinceGrid" class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <section id="newsletter" class="py-16 bg-kgreen-600 text-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl font-extrabold tracking-tight">Stay informed</h2>
+      <p class="mt-3 text-white/80">Subscribe to monthly bulletins with event reminders, development opportunities, and international news.</p>
+      <div class="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+        <input id="newsletterEmail" type="email" placeholder="you@example.com" class="rounded-lg border border-white/30 bg-white/10 px-4 py-3 placeholder:text-white/70 focus:outline-none focus:ring-2 focus:ring-kblue-200" />
+        <button id="newsletterBtn" class="inline-flex items-center justify-center rounded-lg bg-white text-kgreen-700 px-5 py-3 font-semibold hover:bg-kblue-50">Subscribe</button>
+      </div>
+      <p id="newsletterMsg" class="mt-3 hidden text-sm text-kblue-100">Thank you! A confirmation email is on the way.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="py-16 bg-kblue-900 text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[0.85fr_1.15fr] gap-10 items-start">
+      <div>
+        <h2 class="text-3xl font-extrabold tracking-tight">Contact</h2>
+        <p class="mt-3 text-sm text-white/70">For general queries, partnerships, or competition information reach out via email. Use this section to list staff roles.</p>
+        <div class="mt-6 space-y-3 text-sm text-white/80">
+          <div>📧 <a class="underline decoration-dotted" href="mailto:info@kurashsa.org">info@kurashsa.org</a></div>
+          <div>📱 Socials: <a href="#" class="underline decoration-dotted">Instagram</a> · <a href="#" class="underline decoration-dotted">Facebook</a> · <a href="#" class="underline decoration-dotted">YouTube</a></div>
+          <div>🏢 National office: Pretoria, South Africa</div>
+        </div>
+        <div class="mt-8 rounded-3xl bg-white/10 p-6 text-sm text-white/80">
+          <h3 class="text-lg font-semibold text-white">Quick links</h3>
+          <ul class="mt-3 space-y-2">
+            <li>• <a class="underline" href="news.html">News directory</a></li>
+            <li>• <a class="underline" href="events.html">Events directory</a></li>
+            <li>• <a class="underline" href="achievements.html">Achievements directory</a></li>
           </ul>
         </div>
+      </div>
+      <div class="rounded-3xl overflow-hidden ring-1 ring-white/20 shadow-card">
+        <iframe class="h-96 w-full" src="https://www.google.com/maps?q=-25.7479,28.2293&hl=en&z=12&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
     </div>
   </section>
@@ -165,18 +361,17 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-3">
       <div>© <span id="year"></span> Kurash South Africa. All rights reserved.</div>
       <div class="flex items-center gap-4">
-        <a class="hover:text-slate-700" href="#about">About</a>
-        <a class="hover:text-slate-700" href="#org">Leadership</a>
-        <a class="hover:text-slate-700" href="#updates">Updates</a>
+        <a class="hover:text-slate-700" href="#strategic">Strategy</a>
+        <a class="hover:text-slate-700" href="#resources">Resources</a>
+        <a class="hover:text-slate-700" href="#newsletter">Newsletter</a>
       </div>
     </div>
   </footer>
 
-  <!-- App Script -->
   <script>
-    // ===== Org Data =====
     const orgSections = [
       {
+        id:'executive',
         title: 'National Executive Committee',
         people: [
           { role: 'President', name: 'A. Moyo', email: 'president@kurashsa.org', phone: '+27 00 000 0000', img: '' },
@@ -187,6 +382,7 @@
         ]
       },
       {
+        id:'commissions',
         title: 'Commissions',
         people: [
           { role: 'Events & Logistics', name: 'C. Daniels', email: 'events@kurashsa.org', img: '' },
@@ -196,131 +392,221 @@
         ]
       },
       {
+        id:'provinces',
         title: 'Provincial Leads',
         people: [
-          { role: 'Gauteng Lead', name: 'J. Ndlovu', email: 'gauteng@kurashsa.org', img: '' },
-          { role: 'KwaZulu-Natal Lead', name: 'K. Mkhize', email: 'kzn@kurashsa.org', img: '' },
-          { role: 'Western Cape Lead', name: 'L. Adams', email: 'wc@kurashsa.org', img: '' },
-          { role: 'Eastern Cape Lead', name: 'M. Mthembu', email: 'ec@kurashsa.org', img: '' }
+          { role: 'Gauteng Lead', name: 'J. Ndlovu', email: 'gauteng@kurashsa.org', phone: '+27 82 000 1000', img: '' },
+          { role: 'KwaZulu-Natal Lead', name: 'K. Mkhize', email: 'kzn@kurashsa.org', phone: '+27 82 000 2000', img: '' },
+          { role: 'Western Cape Lead', name: 'L. Adams', email: 'wc@kurashsa.org', phone: '+27 82 000 3000', img: '' },
+          { role: 'Eastern Cape Lead', name: 'M. Mthembu', email: 'ec@kurashsa.org', phone: '+27 82 000 4000', img: '' },
+          { role: 'North West Lead', name: 'N. Moagi', email: 'nw@kurashsa.org', phone: '+27 82 000 5000', img: '' }
         ]
       }
     ];
 
-    function initials(name){ return (name||'').split(/\s+/).map(n=>n[0]).join('').slice(0,2).toUpperCase(); }
+    const updates = {
+      news: [
+        { id:'n1', title:'Affiliation Opens for 2026 Season', date:'2025-10-01', tag:'Admin', body:'Club and athlete renewals now open. Early-bird discounts until Nov 15.', img:'assets/news1.jpg' },
+        { id:'n2', title:'National Coaching Clinic Announced', date:'2025-09-10', tag:'Coaching', body:'Level 1 & 2 courses with international tutor. Limited seats.', img:'assets/news2.jpg' },
+        { id:'n3', title:'Safeguarding Officers Trained', date:'2025-08-22', tag:'Safeguarding', body:'Twenty officers completed safe sport certification workshop.', img:'assets/news3.jpg' }
+      ],
+      events: [
+        { id:'e1', title:'Gauteng Open', date:'2025-11-08', tag:'Tournament', body:'Johannesburg. U15–Senior divisions. Entries close Oct 28.', img:'assets/event1.jpg' },
+        { id:'e2', title:'Coach Level 1 Course', date:'2025-11-22', tag:'Coaching', body:'Pretoria. One-day blended course.', img:'assets/event2.jpg' },
+        { id:'e3', title:'Schools Festival', date:'2025-09-18', tag:'Development', body:'Durban. Introduction festival for schools programme.', img:'assets/event3.jpg' }
+      ],
+      achievements: [
+        { id:'a1', title:'Team SA wins 3 medals at Africa Cup', date:'2025-07-14', tag:'International', body:'1 Gold, 2 Bronze across Senior categories.', img:'assets/ach1.jpg' },
+        { id:'a2', title:'Referee D. Naidoo earns Continental B', date:'2025-06-02', tag:'Referees', body:'Congratulations on the new badge!', img:'assets/ach2.jpg' },
+        { id:'a3', title:'KZN Youth Squad secures 5 medals', date:'2025-05-21', tag:'Provincial', body:'Outstanding performances at the Interprovincial Cup.', img:'assets/ach3.jpg' }
+      ]
+    };
 
-    function avatarEl(p){
+    const provinces = [
+      { name:'Gauteng', email:'gauteng@kurashsa.org', phone:'+27 82 000 1000', location:'Johannesburg', meetings:'First Monday each month', img:'' },
+      { name:'KwaZulu-Natal', email:'kzn@kurashsa.org', phone:'+27 82 000 2000', location:'Durban', meetings:'Second Tuesday each month', img:'' },
+      { name:'Western Cape', email:'wc@kurashsa.org', phone:'+27 82 000 3000', location:'Cape Town', meetings:'Last Thursday each month', img:'' },
+      { name:'Eastern Cape', email:'ec@kurashsa.org', phone:'+27 82 000 4000', location:'Gqeberha', meetings:'Quarterly hybrid meeting', img:'' },
+      { name:'North West', email:'nw@kurashsa.org', phone:'+27 82 000 5000', location:'Rustenburg', meetings:'Online — First Wednesday', img:'' },
+      { name:'Free State', email:'freestate@kurashsa.org', phone:'+27 82 000 6000', location:'Bloemfontein', meetings:'Hybrid — first Saturday', img:'' }
+    ];
+
+    const orgWrap = document.getElementById('orgWrap');
+    const orgSearch = document.getElementById('orgSearch');
+    const orgFilter = document.getElementById('orgFilter');
+    const updatesGrid = document.getElementById('updatesGrid');
+    const updateSearch = document.getElementById('updateSearch');
+    const provinceGrid = document.getElementById('provinceGrid');
+
+    let activeTab = 'news';
+    let page = 1;
+    const pageSize = 6;
+
+    function initials(name){ return (name || '').split(/\s+/).map(n => n[0]).join('').slice(0,2).toUpperCase(); }
+
+    function avatarEl(person){
       const wrap = document.createElement('div');
-      wrap.className = 'relative h-24 w-24 sm:h-28 sm:w-28 rounded-full overflow-hidden ring-4 ring-white shadow-soft bg-kgreen-50 flex items-center justify-center text-2xl font-extrabold text-slate-800';
-      if (p.img){
+      wrap.className = 'relative h-20 w-20 rounded-full overflow-hidden ring-4 ring-white shadow-card bg-kgreen-50 flex items-center justify-center text-xl font-extrabold text-slate-800';
+      if(person.img){
         const img = document.createElement('img');
-        img.src = p.img; img.alt = p.name; img.className = 'absolute inset-0 h-full w-full object-cover';
+        img.src = person.img;
+        img.alt = person.name;
+        img.className = 'absolute inset-0 h-full w-full object-cover';
         wrap.appendChild(img);
       } else {
-        wrap.textContent = initials(p.name);
+        wrap.textContent = initials(person.name);
       }
       return wrap;
     }
 
-    function personCard(p){
+    function personCard(person){
       const card = document.createElement('div');
-      card.className = 'rounded-xl bg-white ring-1 ring-slate-200 p-6 shadow-soft flex items-center gap-5';
-      card.appendChild(avatarEl(p));
+      card.className = 'rounded-3xl bg-white ring-1 ring-slate-200 p-6 shadow-card flex items-center gap-5';
+      card.appendChild(avatarEl(person));
       const info = document.createElement('div');
       info.innerHTML = `
-        <div class="text-xs uppercase tracking-wide text-slate-500">${p.role}</div>
-        <div class="font-semibold text-slate-900">${p.name}</div>
+        <div class="text-xs uppercase tracking-wide text-slate-500">${person.role}</div>
+        <div class="font-semibold text-slate-900">${person.name}</div>
         <div class="text-sm">
-          <a class="text-kgreen-700 underline" href="mailto:${p.email}">${p.email}</a>
-          ${p.phone ? ` · <span class="text-slate-600">${p.phone}</span>` : ''}
+          <a class="text-kgreen-700 underline" href="mailto:${person.email}">${person.email}</a>
+          ${person.phone ? ` · <span class="text-slate-600">${person.phone}</span>` : ''}
         </div>`;
       card.appendChild(info);
       return card;
     }
 
     function renderOrg(){
-      const wrap = document.getElementById('orgWrap');
-      wrap.innerHTML = '';
-      orgSections.forEach(sec => {
-        const section = document.createElement('section');
-        section.innerHTML = `<h3 class="text-lg font-extrabold text-kblue-800">${sec.title}</h3>`;
+      const term = (orgSearch.value || '').toLowerCase();
+      const filter = orgFilter.value;
+      orgWrap.innerHTML = '';
+      orgSections.forEach(section => {
+        if(filter !== 'all' && section.id !== filter) return;
+        const matches = section.people.filter(person => {
+          const haystack = `${person.role} ${person.name}`.toLowerCase();
+          return !term || haystack.includes(term);
+        });
+        if(!matches.length) return;
+        const container = document.createElement('section');
+        container.innerHTML = `<h3 class="text-lg font-extrabold text-kblue-800">${section.title}</h3>`;
         const grid = document.createElement('div');
         grid.className = 'mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-6';
-        sec.people.forEach(p => grid.appendChild(personCard(p)));
-        section.appendChild(grid);
-        wrap.appendChild(section);
+        matches.forEach(person => grid.appendChild(personCard(person)));
+        container.appendChild(grid);
+        orgWrap.appendChild(container);
       });
+      if(!orgWrap.children.length){
+        orgWrap.innerHTML = '<p class="text-sm text-slate-500">No matches found. Adjust your search or filter.</p>';
+      }
     }
 
-    // ===== Updates =====
-    const updates = {
-      news: [
-        { id:'n1', title:'Affiliation Opens for 2026 Season', date:'2025-10-01', tag:'Admin', body:'Club and athlete renewals now open. Early-bird discounts until Nov 15.', img:'assets/news1.jpg' },
-        { id:'n2', title:'National Coaching Clinic Announced', date:'2025-09-10', tag:'Coaching', body:'Level 1 & 2 courses with international tutor. Limited seats.', img:'assets/news2.jpg' }
-      ],
-      events: [
-        { id:'e1', title:'Gauteng Open', date:'2025-11-08', tag:'Tournament', body:'Johannesburg. U15–Senior divisions. Entries close Oct 28.', img:'assets/event1.jpg' },
-        { id:'e2', title:'Coach Level 1 Course', date:'2025-11-22', tag:'Coaching', body:'Pretoria. One-day blended course.', img:'assets/event2.jpg' }
-      ],
-      achievements: [
-        { id:'a1', title:'Team SA wins 3 medals at Africa Cup', date:'2025-07-14', tag:'International', body:'1 Gold, 2 Bronze across Senior categories.', img:'assets/ach1.jpg' },
-        { id:'a2', title:'Referee D. Naidoo earns Continental B', date:'2025-06-02', tag:'Referees', body:'Congratulations on the new badge!', img:'assets/ach2.jpg' }
-      ]
-    };
-
-    let activeTab = 'news';
-    let page = 1;
-    const pageSize = 6;
-
-    function formatDate(iso){ return new Date(iso).toLocaleDateString(undefined, { year:'numeric', month:'short', day:'numeric' }); }
-
-    function renderTabs(){
-      document.querySelectorAll('.tabBtn').forEach(btn => {
-        const on = btn.dataset.tab === activeTab;
-        btn.className = `tabBtn px-3 py-2 text-sm rounded-md font-semibold ${on ? 'bg-kblue-700 text-white' : 'text-slate-700 hover:bg-slate-100'}`;
-      });
-    }
-
-    function updateCard(it, type){
+    function updateCard(item, type){
       const article = document.createElement('article');
-      article.className = 'rounded-xl bg-white ring-1 ring-slate-200 shadow-soft overflow-hidden flex flex-col';
+      article.className = 'rounded-3xl bg-white ring-1 ring-slate-200 shadow-card overflow-hidden flex flex-col';
       article.innerHTML = `
-        <div class="aspect-video bg-slate-100 overflow-hidden"><img alt="" src="${it.img || ''}" class="h-full w-full object-cover"/></div>
+        <div class="aspect-video bg-slate-100 overflow-hidden">
+          <img src="${item.img || ''}" alt="${item.title}" class="h-full w-full object-cover" onerror="this.style.display='none'" />
+        </div>
         <div class="p-6">
-          <div class="text-xs uppercase tracking-wide text-slate-500">${it.tag} · ${formatDate(it.date)}</div>
-          <h3 class="mt-1 font-semibold">${it.title}</h3>
-          <p class="mt-2 text-sm text-slate-600">${it.body}</p>
+          <div class="text-xs uppercase tracking-wide text-slate-500">${item.tag} · ${new Date(item.date).toLocaleDateString(undefined,{ year:'numeric', month:'short', day:'numeric' })}</div>
+          <h3 class="mt-1 font-semibold text-slate-900">${item.title}</h3>
+          <p class="mt-2 text-sm text-slate-600">${item.body}</p>
           <div class="mt-4">
-            <a class="text-sm text-kgreen-700 underline hover:no-underline" href="${type}.html?id=${encodeURIComponent(it.id)}">Read more</a>
+            <a class="text-sm text-kgreen-700 underline hover:no-underline" href="${type}.html?id=${encodeURIComponent(item.id)}">Read more</a>
           </div>
         </div>`;
       return article;
     }
 
     function renderUpdates(reset=false){
-      const grid = document.getElementById('updatesGrid');
-      if (reset) { grid.innerHTML=''; page=1; }
-      const items = updates[activeTab].slice().sort((a,b)=> new Date(b.date)-new Date(a.date));
-      const paged = items.slice(0, page*pageSize);
-      grid.innerHTML = '';
-      paged.forEach(it => grid.appendChild(updateCard(it, activeTab)));
+      if(reset){ page = 1; updatesGrid.innerHTML=''; }
+      const term = (updateSearch.value || '').toLowerCase();
+      const items = updates[activeTab].filter(item => {
+        const haystack = `${item.title} ${item.body} ${item.tag}`.toLowerCase();
+        return !term || haystack.includes(term);
+      }).sort((a,b)=> new Date(b.date) - new Date(a.date));
+      const paged = items.slice(0, page * pageSize);
+      updatesGrid.innerHTML = '';
+      paged.forEach(item => updatesGrid.appendChild(updateCard(item, activeTab)));
       const more = document.getElementById('loadMoreBtn');
-      if (items.length > paged.length) more.classList.remove('hidden'); else more.classList.add('hidden');
+      if(items.length > paged.length){
+        more.classList.remove('hidden');
+      } else {
+        more.classList.add('hidden');
+      }
     }
 
-    // UI wiring
-    function wireUI(){
-      document.getElementById('menuBtn')?.addEventListener('click', ()=> document.getElementById('mobileMenu').classList.toggle('hidden'));
-      document.querySelectorAll('.tabBtn').forEach(btn => btn.addEventListener('click', ()=>{ activeTab = btn.dataset.tab; renderTabs(); renderUpdates(true); }));
-      document.getElementById('loadMoreBtn')?.addEventListener('click', ()=>{ page += 1; renderUpdates(); });
-      document.getElementById('year').textContent = new Date().getFullYear();
+    function renderProvinces(){
+      provinceGrid.innerHTML = provinces.map(prov => `
+        <article class="rounded-3xl bg-white ring-1 ring-slate-200 p-6 shadow-card flex flex-col gap-3">
+          <div class="flex items-center gap-4">
+            <div class="h-16 w-16 rounded-full bg-kblue-50 text-kblue-700 flex items-center justify-center text-lg font-semibold">${initials(prov.name)}</div>
+            <div>
+              <h3 class="text-lg font-semibold text-kslate">${prov.name}</h3>
+              <p class="text-xs uppercase tracking-wide text-slate-500">${prov.location}</p>
+            </div>
+          </div>
+          <p class="text-sm text-slate-600">Meetings: ${prov.meetings}</p>
+          <div class="mt-auto text-sm text-slate-600 space-y-1">
+            <div>📧 <a class="underline" href="mailto:${prov.email}">${prov.email}</a></div>
+            <div>📞 <a class="underline" href="tel:${prov.phone.replace(/\s/g,'')}">${prov.phone}</a></div>
+          </div>
+        </article>`).join('');
     }
 
-    document.addEventListener('DOMContentLoaded', ()=>{
-      renderOrg();
-      renderTabs();
-      renderUpdates(true);
-      wireUI();
+    document.getElementById('menuBtn')?.addEventListener('click', () => document.getElementById('mobileMenu').classList.toggle('hidden'));
+
+    orgSections.forEach(section => {
+      const option = document.createElement('option');
+      option.value = section.id;
+      option.textContent = section.title;
+      orgFilter.appendChild(option);
     });
+
+    orgSearch.addEventListener('input', () => renderOrg());
+    orgFilter.addEventListener('change', () => renderOrg());
+
+    document.querySelectorAll('.tabBtn').forEach(btn => btn.addEventListener('click', () => {
+      activeTab = btn.dataset.tab;
+      document.querySelectorAll('.tabBtn').forEach(b => {
+        const on = b.dataset.tab === activeTab;
+        b.className = `tabBtn px-3 py-2 text-sm rounded-md font-semibold ${on ? 'bg-kblue-700 text-white' : 'text-slate-700 hover:bg-slate-100'}`;
+      });
+      renderUpdates(true);
+    }));
+
+    updateSearch.addEventListener('input', () => renderUpdates(true));
+    document.getElementById('loadMoreBtn').addEventListener('click', () => { page += 1; renderUpdates(); });
+
+    document.getElementById('newsletterBtn').addEventListener('click', () => {
+      const email = document.getElementById('newsletterEmail').value.trim();
+      if(!email){ document.getElementById('newsletterEmail').focus(); return; }
+      localStorage.setItem('kurash_newsletter', email);
+      document.getElementById('newsletterMsg').classList.remove('hidden');
+      document.getElementById('newsletterEmail').value = '';
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const target = Number(el.dataset.count || el.textContent);
+      let current = 0;
+      const step = Math.max(1, Math.round(target / 40));
+      const interval = setInterval(() => {
+        current += step;
+        if(current >= target){ current = target; clearInterval(interval); }
+        el.textContent = current;
+      }, 40);
+    });
+
+    renderOrg();
+    renderUpdates(true);
+    renderProvinces();
+
+    try {
+      if(localStorage.getItem('kurash_newsletter')){
+        document.getElementById('newsletterMsg').classList.remove('hidden');
+      }
+    } catch(err) { console.error(err); }
   </script>
 </body>
 </html>
