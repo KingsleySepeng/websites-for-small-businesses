@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kurash South Africa</title>
+  <meta name="description" content="Official site of Kurash South Africa: news, events, achievements, and leadership." />
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            giwhite: '#ffffff',
+            kgreen: { 50:'#ecfdf5', 100:'#d1fae5', 200:'#a7f3d0', 300:'#6ee7b7', 400:'#34d399', 500:'#10b981', 600:'#059669', 700:'#047857', 800:'#065f46', 900:'#064e3b' },
+            kblue:  { 50:'#eff6ff', 100:'#dbeafe', 200:'#bfdbfe', 300:'#93c5fd', 400:'#60a5fa', 500:'#3b82f6', 600:'#2563eb', 700:'#1d4ed8', 800:'#1e40af', 900:'#1e3a8a' }
+          },
+          boxShadow: { soft: '0 14px 30px -12px rgb(0 0 0 / 0.25)' },
+          fontFamily: { sans: ['Inter','system-ui','Segoe UI','Roboto','Helvetica Neue','Arial','sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans text-slate-800 bg-giwhite">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <span class="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-kgreen-100 text-kgreen-700 shadow-soft">🥋</span>
+        <div class="leading-tight">
+          <div class="font-extrabold tracking-tight">Kurash South Africa</div>
+          <div class="text-xs text-slate-500">White • Green • Blue</div>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold">
+        <a href="#about" class="hover:text-kblue-700">About</a>
+        <a href="#org" class="hover:text-kblue-700">Leadership</a>
+        <a href="#updates" class="hover:text-kblue-700">Updates</a>
+        <a href="#contact" class="hover:text-kblue-700">Contact</a>
+      </nav>
+      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center h-10 w-10 rounded-lg hover:bg-slate-100" aria-label="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-200 bg-white">
+      <div class="px-4 py-3 space-y-2 text-sm">
+        <a href="#about" class="block">About</a>
+        <a href="#org" class="block">Leadership</a>
+        <a href="#updates" class="block">Updates</a>
+        <a href="#contact" class="block">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero (big logo space) -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-kgreen-50 via-giwhite to-kblue-50"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900">Kurash South Africa</h1>
+        <p class="mt-4 text-lg text-slate-700 max-w-xl">Official home of Kurash in South Africa. Follow national news, events, achievements, and meet the leadership guiding the sport.</p>
+      </div>
+      <div class="relative">
+        <div class="aspect-square rounded-2xl bg-white ring-1 ring-slate-200 shadow-soft p-6 flex items-center justify-center">
+          <div class="text-center">
+            <!-- Replace the circle with your actual <img src="/path/logo.png" alt="Kurash SA logo" class="h-40 w-40 rounded-full object-cover ring-2 ring-kgreen-400"> -->
+            <div class="mx-auto h-48 w-48 rounded-full ring-2 ring-kgreen-400 flex items-center justify-center text-6xl overflow-hidden bg-kgreen-50">
+              <span>🥋</span>
+            </div>
+            <p class="mt-4 text-sm text-slate-500">Place your official logo here (min 600×600).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-3 gap-8">
+        <p class="lg:col-span-1 text-slate-700">We develop and promote Kurash across South Africa, aligning with continental and international federations. Our pillars are participation growth, safe competitions, and high-performance pathways.</p>
+        <div class="lg:col-span-2 grid sm:grid-cols-2 gap-6">
+          <div class="rounded-xl bg-white ring-1 ring-slate-200 p-6">
+            <h3 class="font-semibold text-kgreen-800">Mission</h3>
+            <p class="mt-2 text-sm text-slate-600">Grow Kurash participation and deliver fair, safe, inclusive competitions nationwide.</p>
+          </div>
+          <div class="rounded-xl bg-white ring-1 ring-slate-200 p-6">
+            <h3 class="font-semibold text-kgreen-800">Values</h3>
+            <p class="mt-2 text-sm text-slate-600">Respect, Discipline, Courage, Integrity, Community.</p>
+          </div>
+          <div class="rounded-xl bg-white ring-1 ring-slate-200 p-6">
+            <h3 class="font-semibold text-kgreen-800">Pathways</h3>
+            <p class="mt-2 text-sm text-slate-600">Clear athlete, coach, and referee development with certification and ranking.</p>
+          </div>
+          <div class="rounded-xl bg-white ring-1 ring-slate-200 p-6">
+            <h3 class="font-semibold text-kgreen-800">Safeguarding</h3>
+            <p class="mt-2 text-sm text-slate-600">We commit to safe sport policies and athlete welfare.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Leadership (large avatars; name, role, contact) -->
+  <section id="org" class="py-16 bg-kgreen-50/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-extrabold tracking-tight">Leadership</h2>
+      <p class="mt-2 text-slate-700">Executive, commissions, and provincial leads. Replace photos/emails with your own.</p>
+
+      <div id="orgWrap" class="mt-8 space-y-10"></div>
+    </div>
+  </section>
+
+  <!-- Updates (News / Events / Achievements) with image previews -->
+  <section id="updates" class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between flex-wrap gap-3">
+        <h2 class="text-2xl font-extrabold tracking-tight">Updates</h2>
+        <div class="inline-flex rounded-lg border border-slate-300 bg-white p-1">
+          <button data-tab="news" class="tabBtn px-3 py-2 text-sm rounded-md font-semibold">News</button>
+          <button data-tab="events" class="tabBtn px-3 py-2 text-sm rounded-md font-semibold">Events</button>
+          <button data-tab="achievements" class="tabBtn px-3 py-2 text-sm rounded-md font-semibold">Achievements</button>
+        </div>
+      </div>
+
+      <div id="updatesGrid" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      <div class="mt-6 text-center">
+        <button id="loadMoreBtn" class="hidden inline-flex items-center rounded-lg border border-slate-300 bg-white px-4 py-2 text-sm hover:bg-slate-50">Load more</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 bg-kblue-50/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl font-extrabold tracking-tight">Contact</h2>
+      <div class="mt-6 grid md:grid-cols-2 gap-8 items-start">
+        <div class="rounded-xl bg-white ring-1 ring-slate-200 p-6">
+          <p class="text-slate-700">For general queries, partnerships, or competition information:</p>
+          <div class="mt-4 space-y-2 text-sm">
+            <div>📧 <a class="underline text-kblue-700" href="mailto:info@kurashsa.org">info@kurashsa.org</a></div>
+            <div>📍 South Africa (national body)</div>
+            <div>📱 Socials: <a href="#" class="underline text-kblue-700">Instagram</a> · <a href="#" class="underline text-kblue-700">Facebook</a> · <a href="#" class="underline text-kblue-700">YouTube</a></div>
+          </div>
+        </div>
+        <div class="rounded-xl bg-white ring-1 ring-slate-200 p-6">
+          <p class="text-sm text-slate-600">Directories:</p>
+          <ul class="mt-3 text-sm list-disc list-inside text-slate-700">
+            <li><a class="underline text-kgreen-700" href="news.html">News directory</a></li>
+            <li><a class="underline text-kgreen-700" href="events.html">Events directory</a></li>
+            <li><a class="underline text-kgreen-700" href="achievements.html">Achievements directory</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div>© <span id="year"></span> Kurash South Africa. All rights reserved.</div>
+      <div class="flex items-center gap-4">
+        <a class="hover:text-slate-700" href="#about">About</a>
+        <a class="hover:text-slate-700" href="#org">Leadership</a>
+        <a class="hover:text-slate-700" href="#updates">Updates</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- App Script -->
+  <script>
+    // ===== Org Data =====
+    const orgSections = [
+      {
+        title: 'National Executive Committee',
+        people: [
+          { role: 'President', name: 'A. Moyo', email: 'president@kurashsa.org', phone: '+27 00 000 0000', img: '' },
+          { role: 'Vice President – Operations', name: 'B. Nkosi', email: 'vp.ops@kurashsa.org', img: '' },
+          { role: 'Vice President – Development', name: 'E. Smith', email: 'vp.dev@kurashsa.org', img: '' },
+          { role: 'Secretary General', name: 'H. Dlamini', email: 'secretary@kurashsa.org', img: '' },
+          { role: 'Treasurer', name: 'I. Botha', email: 'finance@kurashsa.org', img: '' }
+        ]
+      },
+      {
+        title: 'Commissions',
+        people: [
+          { role: 'Events & Logistics', name: 'C. Daniels', email: 'events@kurashsa.org', img: '' },
+          { role: 'Referees Commission', name: 'D. Naidoo', email: 'referees@kurashsa.org', img: '' },
+          { role: 'Coaching & Education', name: 'F. Jacobs', email: 'coaching@kurashsa.org', img: '' },
+          { role: 'Youth & Schools', name: 'G. Williams', email: 'youth@kurashsa.org', img: '' }
+        ]
+      },
+      {
+        title: 'Provincial Leads',
+        people: [
+          { role: 'Gauteng Lead', name: 'J. Ndlovu', email: 'gauteng@kurashsa.org', img: '' },
+          { role: 'KwaZulu-Natal Lead', name: 'K. Mkhize', email: 'kzn@kurashsa.org', img: '' },
+          { role: 'Western Cape Lead', name: 'L. Adams', email: 'wc@kurashsa.org', img: '' },
+          { role: 'Eastern Cape Lead', name: 'M. Mthembu', email: 'ec@kurashsa.org', img: '' }
+        ]
+      }
+    ];
+
+    function initials(name){ return (name||'').split(/\s+/).map(n=>n[0]).join('').slice(0,2).toUpperCase(); }
+
+    function avatarEl(p){
+      const wrap = document.createElement('div');
+      wrap.className = 'relative h-24 w-24 sm:h-28 sm:w-28 rounded-full overflow-hidden ring-4 ring-white shadow-soft bg-kgreen-50 flex items-center justify-center text-2xl font-extrabold text-slate-800';
+      if (p.img){
+        const img = document.createElement('img');
+        img.src = p.img; img.alt = p.name; img.className = 'absolute inset-0 h-full w-full object-cover';
+        wrap.appendChild(img);
+      } else {
+        wrap.textContent = initials(p.name);
+      }
+      return wrap;
+    }
+
+    function personCard(p){
+      const card = document.createElement('div');
+      card.className = 'rounded-xl bg-white ring-1 ring-slate-200 p-6 shadow-soft flex items-center gap-5';
+      card.appendChild(avatarEl(p));
+      const info = document.createElement('div');
+      info.innerHTML = `
+        <div class="text-xs uppercase tracking-wide text-slate-500">${p.role}</div>
+        <div class="font-semibold text-slate-900">${p.name}</div>
+        <div class="text-sm">
+          <a class="text-kgreen-700 underline" href="mailto:${p.email}">${p.email}</a>
+          ${p.phone ? ` · <span class="text-slate-600">${p.phone}</span>` : ''}
+        </div>`;
+      card.appendChild(info);
+      return card;
+    }
+
+    function renderOrg(){
+      const wrap = document.getElementById('orgWrap');
+      wrap.innerHTML = '';
+      orgSections.forEach(sec => {
+        const section = document.createElement('section');
+        section.innerHTML = `<h3 class="text-lg font-extrabold text-kblue-800">${sec.title}</h3>`;
+        const grid = document.createElement('div');
+        grid.className = 'mt-4 grid sm:grid-cols-2 lg:grid-cols-3 gap-6';
+        sec.people.forEach(p => grid.appendChild(personCard(p)));
+        section.appendChild(grid);
+        wrap.appendChild(section);
+      });
+    }
+
+    // ===== Updates =====
+    const updates = {
+      news: [
+        { id:'n1', title:'Affiliation Opens for 2026 Season', date:'2025-10-01', tag:'Admin', body:'Club and athlete renewals now open. Early-bird discounts until Nov 15.', img:'assets/news1.jpg' },
+        { id:'n2', title:'National Coaching Clinic Announced', date:'2025-09-10', tag:'Coaching', body:'Level 1 & 2 courses with international tutor. Limited seats.', img:'assets/news2.jpg' }
+      ],
+      events: [
+        { id:'e1', title:'Gauteng Open', date:'2025-11-08', tag:'Tournament', body:'Johannesburg. U15–Senior divisions. Entries close Oct 28.', img:'assets/event1.jpg' },
+        { id:'e2', title:'Coach Level 1 Course', date:'2025-11-22', tag:'Coaching', body:'Pretoria. One-day blended course.', img:'assets/event2.jpg' }
+      ],
+      achievements: [
+        { id:'a1', title:'Team SA wins 3 medals at Africa Cup', date:'2025-07-14', tag:'International', body:'1 Gold, 2 Bronze across Senior categories.', img:'assets/ach1.jpg' },
+        { id:'a2', title:'Referee D. Naidoo earns Continental B', date:'2025-06-02', tag:'Referees', body:'Congratulations on the new badge!', img:'assets/ach2.jpg' }
+      ]
+    };
+
+    let activeTab = 'news';
+    let page = 1;
+    const pageSize = 6;
+
+    function formatDate(iso){ return new Date(iso).toLocaleDateString(undefined, { year:'numeric', month:'short', day:'numeric' }); }
+
+    function renderTabs(){
+      document.querySelectorAll('.tabBtn').forEach(btn => {
+        const on = btn.dataset.tab === activeTab;
+        btn.className = `tabBtn px-3 py-2 text-sm rounded-md font-semibold ${on ? 'bg-kblue-700 text-white' : 'text-slate-700 hover:bg-slate-100'}`;
+      });
+    }
+
+    function updateCard(it, type){
+      const article = document.createElement('article');
+      article.className = 'rounded-xl bg-white ring-1 ring-slate-200 shadow-soft overflow-hidden flex flex-col';
+      article.innerHTML = `
+        <div class="aspect-video bg-slate-100 overflow-hidden"><img alt="" src="${it.img || ''}" class="h-full w-full object-cover"/></div>
+        <div class="p-6">
+          <div class="text-xs uppercase tracking-wide text-slate-500">${it.tag} · ${formatDate(it.date)}</div>
+          <h3 class="mt-1 font-semibold">${it.title}</h3>
+          <p class="mt-2 text-sm text-slate-600">${it.body}</p>
+          <div class="mt-4">
+            <a class="text-sm text-kgreen-700 underline hover:no-underline" href="${type}.html?id=${encodeURIComponent(it.id)}">Read more</a>
+          </div>
+        </div>`;
+      return article;
+    }
+
+    function renderUpdates(reset=false){
+      const grid = document.getElementById('updatesGrid');
+      if (reset) { grid.innerHTML=''; page=1; }
+      const items = updates[activeTab].slice().sort((a,b)=> new Date(b.date)-new Date(a.date));
+      const paged = items.slice(0, page*pageSize);
+      grid.innerHTML = '';
+      paged.forEach(it => grid.appendChild(updateCard(it, activeTab)));
+      const more = document.getElementById('loadMoreBtn');
+      if (items.length > paged.length) more.classList.remove('hidden'); else more.classList.add('hidden');
+    }
+
+    // UI wiring
+    function wireUI(){
+      document.getElementById('menuBtn')?.addEventListener('click', ()=> document.getElementById('mobileMenu').classList.toggle('hidden'));
+      document.querySelectorAll('.tabBtn').forEach(btn => btn.addEventListener('click', ()=>{ activeTab = btn.dataset.tab; renderTabs(); renderUpdates(true); }));
+      document.getElementById('loadMoreBtn')?.addEventListener('click', ()=>{ page += 1; renderUpdates(); });
+      document.getElementById('year').textContent = new Date().getFullYear();
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+      renderOrg();
+      renderTabs();
+      renderUpdates(true);
+      wireUI();
+    });
+  </script>
+</body>
+</html>

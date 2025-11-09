@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>News — Kurash South Africa</title>
+  <meta name="description" content="News from Kurash South Africa." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { kgreen:{700:'#047857'}, kblue:{700:'#1d4ed8'} },
+      fontFamily: { sans:['Inter','system-ui'] }
+    } } };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans bg-white text-slate-800">
+  <header class="h-56 md:h-72 w-full relative overflow-hidden">
+    <img id="hero" class="absolute inset-0 h-full w-full object-cover" alt="">
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="relative max-w-4xl mx-auto px-4 h-full flex items-end pb-6">
+      <h1 id="titleHero" class="text-3xl md:text-4xl font-extrabold text-white drop-shadow">News</h1>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 py-8">
+    <article id="article" class="prose max-w-none"></article>
+    <a href="index.html#updates" class="inline-block mt-8 underline text-kblue-700">← Back to Updates</a>
+  </main>
+
+  <script>
+    const id = new URLSearchParams(location.search).get('id');
+    const data = {
+      n1:{title:'Affiliation Opens for 2026 Season',date:'2025-10-01',img:'assets/news1.jpg',body:'Full announcement goes here…'},
+      n2:{title:'National Coaching Clinic Announced',date:'2025-09-10',img:'assets/news2.jpg',body:'Full details go here…'}
+    };
+    const a = data[id] || {title:'Not found',date:'',img:'',body:'This item does not exist.'};
+    document.getElementById('hero').src = a.img || '';
+    document.getElementById('titleHero').textContent = a.title || 'News';
+    document.getElementById('article').innerHTML =
+      `<div class="text-xs text-slate-500">${a.date}</div>
+       <h2 class="text-2xl font-bold mt-1">${a.title}</h2>
+       <p class="mt-4">${a.body}</p>`;
+  </script>
+</body>
+</html>
