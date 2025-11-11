@@ -3,43 +3,125 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>News — Kurash South Africa</title>
-  <meta name="description" content="News from Kurash South Africa." />
+  <meta name="description" content="Latest news from Kurash South Africa." />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = { theme: { extend: {
       colors: { kgreen:{700:'#047857'}, kblue:{700:'#1d4ed8'} },
-      fontFamily: { sans:['Inter','system-ui'] }
+      fontFamily: { sans:['Inter','system-ui'] },
+      boxShadow:{ card:'0 16px 36px -20px rgb(15 23 42 / 0.35)'}
     } } };
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="font-sans bg-white text-slate-800">
-  <header class="h-56 md:h-72 w-full relative overflow-hidden">
+  <header class="h-60 md:h-72 w-full relative overflow-hidden">
     <img id="hero" class="absolute inset-0 h-full w-full object-cover" alt="">
-    <div class="absolute inset-0 bg-black/40"></div>
-    <div class="relative max-w-4xl mx-auto px-4 h-full flex items-end pb-6">
-      <h1 id="titleHero" class="text-3xl md:text-4xl font-extrabold text-white drop-shadow">News</h1>
+    <div class="absolute inset-0 bg-black/45"></div>
+    <div class="relative max-w-5xl mx-auto px-4 h-full flex items-end pb-8">
+      <div>
+        <a href="index.html" class="text-xs uppercase tracking-[0.3em] text-white/70">Kurash South Africa</a>
+        <h1 id="titleHero" class="mt-2 text-3xl md:text-4xl font-extrabold text-white drop-shadow">News</h1>
+      </div>
     </div>
   </header>
 
-  <main class="max-w-4xl mx-auto px-4 py-8">
-    <article id="article" class="prose max-w-none"></article>
-    <a href="index.html#updates" class="inline-block mt-8 underline text-kblue-700">← Back to Updates</a>
+  <main class="max-w-5xl mx-auto px-4 py-10 grid lg:grid-cols-[minmax(0,1fr)_18rem] gap-10">
+    <article id="article" class="prose prose-slate max-w-none"></article>
+    <aside class="space-y-6">
+      <section class="rounded-3xl bg-slate-50 p-5 ring-1 ring-slate-200">
+        <h2 class="text-sm font-semibold text-slate-700 uppercase tracking-wide">Attachments</h2>
+        <ul id="attachments" class="mt-3 text-sm text-slate-600 space-y-2"></ul>
+      </section>
+      <section class="rounded-3xl bg-slate-50 p-5 ring-1 ring-slate-200">
+        <h2 class="text-sm font-semibold text-slate-700 uppercase tracking-wide">Share</h2>
+        <div class="mt-3 flex flex-col gap-2 text-sm">
+          <button class="shareBtn inline-flex items-center gap-2 rounded-lg bg-kgreen-700 text-white px-3 py-2" data-network="mailto">Email announcement</button>
+          <button class="shareBtn inline-flex items-center gap-2 rounded-lg border border-slate-300 px-3 py-2" data-network="whatsapp">Share on WhatsApp</button>
+          <button class="shareBtn inline-flex items-center gap-2 rounded-lg border border-slate-300 px-3 py-2" data-network="copy">Copy link</button>
+        </div>
+      </section>
+      <section class="rounded-3xl bg-slate-50 p-5 ring-1 ring-slate-200">
+        <h2 class="text-sm font-semibold text-slate-700 uppercase tracking-wide">Related</h2>
+        <ul id="related" class="mt-3 text-sm text-slate-600 space-y-2"></ul>
+      </section>
+    </aside>
   </main>
+
+  <div class="max-w-5xl mx-auto px-4 pb-10">
+    <a href="index.html#updates" class="inline-flex items-center gap-2 text-sm text-kblue-700 underline">← Back to Updates</a>
+  </div>
 
   <script>
     const id = new URLSearchParams(location.search).get('id');
     const data = {
-      n1:{title:'Affiliation Opens for 2026 Season',date:'2025-10-01',img:'assets/news1.jpg',body:'Full announcement goes here…'},
-      n2:{title:'National Coaching Clinic Announced',date:'2025-09-10',img:'assets/news2.jpg',body:'Full details go here…'}
+      n1:{
+        title:'Affiliation Opens for 2026 Season',
+        date:'2025-10-01',
+        img:'assets/news1.jpg',
+        body:`<p>Club and athlete renewals are now open for the 2026 competitive season. Download the affiliation pack to review fees, deadlines, and requirements.</p>
+              <h2>What to do next</h2>
+              <ul><li>Download the affiliation checklist.</li><li>Submit club documents via the portal before <strong>15 November</strong>.</li><li>Reach out to <a href="mailto:secretary@kurashsa.org">secretary@kurashsa.org</a> for assistance.</li></ul>
+              <p>We encourage all clubs to attend the online orientation session on 18 October.</p>`,
+        attachments:[{label:'Affiliation Pack (PDF)',href:'assets/affiliation-pack.pdf'},{label:'Orientation Webinar Link',href:'#'}],
+        related:['n2','n3']
+      },
+      n2:{
+        title:'National Coaching Clinic Announced',
+        date:'2025-09-10',
+        img:'assets/news2.jpg',
+        body:`<p>Level 1 &amp; Level 2 coaching courses will run concurrently with international tutor Sensei Karimov. Spaces are limited.</p>
+              <h2>Clinic outline</h2>
+              <ol><li>Day 1: Technical foundations</li><li>Day 2: Competition tactics &amp; video review</li><li>Day 3: Safeguarding &amp; first aid refresher</li></ol>
+              <p>Register online by 30 September to secure your place.</p>`,
+        attachments:[{label:'Clinic Schedule (PDF)',href:'assets/clinic-schedule.pdf'}],
+        related:['n1','n3']
+      },
+      n3:{
+        title:'Safeguarding Officers Trained',
+        date:'2025-08-22',
+        img:'assets/news3.jpg',
+        body:`<p>Twenty safeguarding officers completed the national safe sport certification workshop hosted in Durban. Thank you to everyone for committing to athlete welfare.</p>
+              <p>Clubs still needing safeguarding officers can email <a href="mailto:safesport@kurashsa.org">safesport@kurashsa.org</a> to join the next intake.</p>`,
+        attachments:[{label:'Safeguarding Policy',href:'assets/safeguarding-policy.pdf'}],
+        related:['n1']
+      }
     };
-    const a = data[id] || {title:'Not found',date:'',img:'',body:'This item does not exist.'};
-    document.getElementById('hero').src = a.img || '';
-    document.getElementById('titleHero').textContent = a.title || 'News';
-    document.getElementById('article').innerHTML =
-      `<div class="text-xs text-slate-500">${a.date}</div>
-       <h2 class="text-2xl font-bold mt-1">${a.title}</h2>
-       <p class="mt-4">${a.body}</p>`;
+
+    const record = data[id] || { title:'Not found', date:'', img:'', body:'<p>This item does not exist.</p>', attachments:[], related:[] };
+
+    document.getElementById('hero').src = record.img || '';
+    document.getElementById('titleHero').textContent = record.title || 'News';
+    document.getElementById('article').innerHTML = `
+      <p class="text-sm text-slate-500">${record.date ? new Date(record.date).toLocaleDateString(undefined,{year:'numeric',month:'long',day:'numeric'}) : ''}</p>
+      <h2 class="text-2xl font-bold">${record.title}</h2>
+      ${record.body}`;
+
+    const attachments = document.getElementById('attachments');
+    if(record.attachments?.length){
+      attachments.innerHTML = record.attachments.map(item => `<li><a class="underline text-kgreen-700" href="${item.href}">${item.label}</a></li>`).join('');
+    } else {
+      attachments.innerHTML = '<li class="text-xs text-slate-400">No attachments provided.</li>';
+    }
+
+    const related = document.getElementById('related');
+    if(record.related?.length){
+      related.innerHTML = record.related.map(key => `<li><a class="underline text-kblue-700" href="news.html?id=${key}">${data[key]?.title || 'News item'}</a></li>`).join('');
+    } else {
+      related.innerHTML = '<li class="text-xs text-slate-400">No related items yet.</li>';
+    }
+
+    document.querySelectorAll('.shareBtn').forEach(btn => btn.addEventListener('click', () => {
+      const url = location.href;
+      const subject = encodeURIComponent(record.title);
+      if(btn.dataset.network === 'mailto'){
+        location.href = `mailto:?subject=${subject}&body=${encodeURIComponent(url)}`;
+      } else if(btn.dataset.network === 'whatsapp'){
+        window.open(`https://wa.me/?text=${encodeURIComponent(record.title + ' - ' + url)}`,'_blank');
+      } else {
+        navigator.clipboard?.writeText(url).then(()=> alert('Link copied to clipboard.'));
+      }
+    }));
   </script>
 </body>
 </html>
