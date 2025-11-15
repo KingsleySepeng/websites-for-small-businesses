@@ -25,6 +25,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    [data-animate] { opacity: 0; transform: translateY(32px); transition: opacity .6s ease, transform .6s ease; }
+    [data-animate].animate-in { opacity: 1; transform: translateY(0); }
+    #scrollTopBtn { position: fixed; right: 1.5rem; bottom: 1.5rem; opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .3s ease, transform .3s ease; }
+    #scrollTopBtn.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .loading-dots { display: inline-flex; align-items: center; gap: 4px; }
+    .loading-dots span { display: block; width: 6px; height: 6px; border-radius: 9999px; background: currentColor; animation: bounce 0.6s infinite alternate; }
+    .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce { to { transform: translateY(-4px); opacity: 0.7; } }
+  </style>
 </head>
 <body class="bg-ivory text-base font-sans">
   <header class="sticky top-0 z-40 bg-ivory/95 backdrop-blur border-b border-sand-200">
@@ -60,7 +72,7 @@
     </div>
   </header>
 
-  <section class="relative overflow-hidden">
+  <section class="relative overflow-hidden" data-animate>
     <div class="absolute inset-0 bg-gradient-to-br from-sand-50 via-ivory to-crimson-50"></div>
     <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 grid md:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
       <div>
@@ -102,7 +114,7 @@
     </div>
   </section>
 
-  <section id="lineage" class="py-16">
+  <section id="lineage" class="py-16" data-animate>
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-3xl font-display font-bold text-base">Lineage &amp; Philosophy</h2>
       <p class="mt-3 text-base/80">Show your connection to the origin of Shoto‑Ryu. Replace portraits with your actual teachers and include notable achievements.</p>
@@ -145,7 +157,7 @@
     </div>
   </section>
 
-  <section id="programs" class="py-16 bg-sand-50">
+  <section id="programs" class="py-16 bg-sand-50" data-animate>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
         <div>
@@ -163,7 +175,7 @@
     </div>
   </section>
 
-  <section id="instructors" class="py-16">
+  <section id="instructors" class="py-16" data-animate>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl font-display font-bold text-base">Instructor cadre</h2>
       <p class="mt-2 text-base/75">Introduce your teaching team with Dan rankings, safeguarding certificates, and contact details.</p>
@@ -182,7 +194,7 @@
     </div>
   </section>
 
-  <section id="dojoTour" class="py-16 bg-ivory">
+  <section id="dojoTour" class="py-16 bg-ivory" data-animate>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[0.85fr_1.15fr] gap-10 items-center">
       <div>
         <h2 class="text-3xl font-display font-bold text-base">Dojo tour &amp; etiquette</h2>
@@ -203,7 +215,7 @@
     </div>
   </section>
 
-  <section id="seminars" class="py-16 bg-sand-50">
+  <section id="seminars" class="py-16 bg-sand-50" data-animate>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
         <div>
@@ -230,7 +242,7 @@
     </div>
   </section>
 
-  <section id="membership" class="py-16">
+  <section id="membership" class="py-16" data-animate>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto">
         <h2 class="text-3xl font-display font-bold text-base">Membership &amp; investment</h2>
@@ -272,7 +284,7 @@
     </div>
   </section>
 
-  <section id="trial" class="py-16 bg-sand-50">
+  <section id="trial" class="py-16 bg-sand-50" data-animate>
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="rounded-3xl bg-white ring-1 ring-sand-200 p-8 shadow-card grid md:grid-cols-2 gap-8">
         <div>
@@ -322,7 +334,7 @@
     </div>
   </section>
 
-  <section id="testimonials" class="py-16">
+  <section id="testimonials" class="py-16" data-animate>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
         <div>
@@ -338,31 +350,98 @@
     </div>
   </section>
 
-  <section id="contact" class="py-16 bg-base text-white">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[0.85fr_1.15fr] gap-10">
-      <div>
-        <h2 class="text-3xl font-display font-bold">Visit the honbu dojo</h2>
-        <p class="mt-3 text-sm text-white/70">45 Martial Way, Johannesburg North. Secure parking, change rooms, and spectator lounge.</p>
-        <div class="mt-6 space-y-3 text-sm text-white/80">
-          <div>📞 <a class="underline decoration-dotted" href="tel:+27110000000">+27 (0)11 000 0000</a></div>
-          <div>📧 <a class="underline decoration-dotted" href="mailto:info@shotoryu.example">info@shotoryu.example</a></div>
-          <div>📱 <a class="underline decoration-dotted" href="#">Instagram</a> · <a class="underline decoration-dotted" href="#">Facebook</a> · <a class="underline decoration-dotted" href="#">YouTube</a></div>
-          <div>🕒 Mon–Thu 16:00–21:00 • Sat 08:30–12:00</div>
+  <section id="contact" class="py-16 bg-base text-white" data-animate>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
+        <div class="space-y-6">
+          <div>
+            <h2 class="text-3xl font-display font-bold">Connect with the dojo</h2>
+            <p class="mt-3 text-sm text-white/70">Honbu Dojo — 456 Heritage Avenue, Johannesburg. Visitors are welcome to observe classes; please arrive 15 minutes early.</p>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4 text-sm text-white/80">
+            <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/10">
+              <p class="text-xs uppercase tracking-wide text-white/60">Phone</p>
+              <a class="mt-1 block font-semibold text-white" href="tel:+27110002222">+27 (0)11 000 2222</a>
+              <p class="mt-1 text-xs text-white/60">WhatsApp: +27 82 111 2222</p>
+            </div>
+            <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/10">
+              <p class="text-xs uppercase tracking-wide text-white/60">Email</p>
+              <a class="mt-1 block font-semibold text-white" href="mailto:admin@shotoryu.example">admin@shotoryu.example</a>
+              <p class="mt-1 text-xs text-white/60">Administrative queries</p>
+            </div>
+            <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/10">
+              <p class="text-xs uppercase tracking-wide text-white/60">Class schedule</p>
+              <p class="mt-1 font-semibold">Mon–Fri 17:00–21:00</p>
+              <p class="mt-1 text-xs text-white/60">Saturday 08:00–11:30</p>
+            </div>
+            <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/10">
+              <p class="text-xs uppercase tracking-wide text-white/60">Follow</p>
+              <p class="mt-1 font-semibold space-x-2">
+                <a class="underline decoration-dotted" href="#">Instagram</a>
+                <a class="underline decoration-dotted" href="#">Facebook</a>
+                <a class="underline decoration-dotted" href="#">YouTube</a>
+              </p>
+            </div>
+          </div>
+          <div class="rounded-2xl bg-white/10 p-5 ring-1 ring-white/10">
+            <h3 class="text-lg font-semibold text-white">Etiquette reminders</h3>
+            <ul class="mt-3 space-y-2 text-sm text-white/80">
+              <li>• Bow when entering and leaving the dojo.</li>
+              <li>• Keep nails trimmed and gi clean.</li>
+              <li>• Arrive 10 minutes early to warm up quietly.</li>
+            </ul>
+          </div>
         </div>
-        <div class="mt-8">
-          <label class="block text-sm font-semibold text-white">Download dojo rules (PDF)</label>
-          <a href="assets/dojo-rules.pdf" class="mt-2 inline-flex items-center gap-2 rounded-lg border border-white/30 px-4 py-2 text-sm hover:bg-white/10">
-            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4v12m0 0l-3-3m3 3l3-3M4 20h16"/></svg>
-            Download PDF
-          </a>
-        </div>
+        <form id="contactForm" class="rounded-3xl bg-ivory text-base p-6 sm:p-8 shadow-card space-y-5" novalidate>
+          <div>
+            <h3 class="text-2xl font-display font-bold text-base">Send a message</h3>
+            <p class="mt-2 text-sm text-base/70">Share your enquiry and we will respond within one working day. You can also request a call from a senior instructor.</p>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-semibold text-base" for="contactName">Full name</label>
+              <input id="contactName" name="name" required autocomplete="name" class="mt-1 w-full rounded-lg border border-sand-200 px-4 py-2 focus:border-crimson-500 focus:ring-crimson-500" placeholder="Thandi Nkosi" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-base" for="contactEmail">Email</label>
+              <input id="contactEmail" name="email" type="email" required autocomplete="email" class="mt-1 w-full rounded-lg border border-sand-200 px-4 py-2 focus:border-crimson-500 focus:ring-crimson-500" placeholder="you@example.com" />
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-semibold text-base" for="contactPhone">Phone</label>
+              <input id="contactPhone" name="phone" type="tel" class="mt-1 w-full rounded-lg border border-sand-200 px-4 py-2 focus:border-crimson-500 focus:ring-crimson-500" placeholder="+27" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-base" for="contactFocus">Focus</label>
+              <select id="contactFocus" name="focus" class="mt-1 w-full rounded-lg border border-sand-200 px-4 py-2 focus:border-crimson-500 focus:ring-crimson-500">
+                <option value="Adult classes">Adult classes</option>
+                <option value="Junior karate">Junior karate</option>
+                <option value="Dan gradings">Dan gradings</option>
+                <option value="Seminar booking">Seminar booking</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-base" for="contactMessage">Message</label>
+            <textarea id="contactMessage" name="message" rows="4" required class="mt-1 w-full rounded-lg border border-sand-200 px-4 py-2 focus:border-crimson-500 focus:ring-crimson-500" placeholder="Share background, goals, and preferred class times"></textarea>
+          </div>
+          <div class="flex items-center gap-3 text-xs text-base/60">
+            <input id="contactConsent" type="checkbox" required class="rounded border-sand-200 text-crimson-600 focus:ring-crimson-500">
+            <label for="contactConsent">I consent to Shoto‑Ryu Karate Club contacting me regarding programmes.</label>
+          </div>
+          <button id="contactSubmit" class="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-crimson-600 text-white px-4 py-2.5 font-semibold hover:bg-crimson-700 transition" type="submit">
+            <span>Send message</span>
+          </button>
+          <p id="contactSuccess" class="hidden text-sm font-semibold text-crimson-200">Thank you! Your message has been sent.</p>
+          <p id="contactError" class="hidden text-sm font-semibold text-amber-200">Delivery failed. Please retry or email admin@shotoryu.example.</p>
+        </form>
       </div>
-      <div class="rounded-3xl overflow-hidden ring-1 ring-white/30 shadow-card">
-        <iframe class="h-96 w-full" src="https://www.google.com/maps?q=-26.1457,28.0419&hl=en&z=13&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="rounded-3xl overflow-hidden ring-1 ring-white/20 shadow-card" data-animate>
+        <iframe class="h-96 w-full" src="https://www.google.com/maps?q=-26.2041,28.0473&hl=en&z=12&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Shoto-Ryu Karate Club location"></iframe>
       </div>
     </div>
   </section>
-
   <footer class="border-t border-sand-200 bg-ivory">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-3 text-sm text-base/70">
       <div>© <span id="year"></span> Shoto‑Ryu Karate Club. All rights reserved.</div>
@@ -374,7 +453,14 @@
     </div>
   </footer>
 
+  <button id="scrollTopBtn" class="rounded-full bg-crimson-600 text-white h-12 w-12 shadow-soft flex items-center justify-center" aria-label="Scroll to top">↑</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
+    const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
+    const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+    const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+
     const programData = {
       foundation:{
         title:'Traditional Foundation',
@@ -554,6 +640,97 @@
       URL.revokeObjectURL(url);
     });
 
+    function initEmailJS(){
+      if(window.emailjs && EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY'){
+        emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+      }
+    }
+
+    function handleContactForm(){
+      const form = document.getElementById('contactForm');
+      if(!form){ return; }
+      const submitBtn = document.getElementById('contactSubmit');
+      const successMsg = document.getElementById('contactSuccess');
+      const errorMsg = document.getElementById('contactError');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        successMsg.classList.add('hidden');
+        errorMsg.classList.add('hidden');
+
+        if(!form.reportValidity()){
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span class="loading-dots"><span></span><span></span><span></span></span><span>Sending</span>`;
+
+        const formData = new FormData(form);
+        const payload = {
+          from_name: formData.get('name'),
+          reply_to: formData.get('email'),
+          phone: formData.get('phone'),
+          focus: formData.get('focus'),
+          message: formData.get('message')
+        };
+
+        const resetButton = () => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Send message</span>';
+        };
+
+        const hasCredentials = EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID' && EMAILJS_TEMPLATE_ID !== 'YOUR_TEMPLATE_ID' && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY';
+
+        if(!(window.emailjs && hasCredentials)){
+          console.warn('EmailJS credentials missing. Update EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, and EMAILJS_PUBLIC_KEY.');
+          successMsg.classList.remove('hidden');
+          localStorage.setItem('shotoryu_last_contact', JSON.stringify({ ...payload, date: new Date().toISOString() }));
+          form.reset();
+          resetButton();
+          return;
+        }
+
+        try {
+          await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, payload, EMAILJS_PUBLIC_KEY);
+          successMsg.classList.remove('hidden');
+          localStorage.setItem('shotoryu_last_contact', JSON.stringify({ ...payload, date: new Date().toISOString() }));
+          form.reset();
+        } catch (error) {
+          console.error(error);
+          errorMsg.classList.remove('hidden');
+        } finally {
+          resetButton();
+        }
+      });
+    }
+
+    function setupScrollAnimations(){
+      const animated = document.querySelectorAll('[data-animate]');
+      if(!animated.length){ return; }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      animated.forEach(el => observer.observe(el));
+    }
+
+    function setupScrollTop(){
+      const button = document.getElementById('scrollTopBtn');
+      if(!button){ return; }
+      window.addEventListener('scroll', () => {
+        if(window.scrollY > 320){
+          button.classList.add('show');
+        } else {
+          button.classList.remove('show');
+        }
+      });
+      button.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+
     document.querySelectorAll('[data-count]').forEach(el => {
       const target = Number(el.dataset.count || el.textContent);
       let current = 0;
@@ -576,7 +753,15 @@
       if(localStorage.getItem('shotoryu_trial')){
         document.getElementById('trialMsg').classList.remove('hidden');
       }
+      if(localStorage.getItem('shotoryu_last_contact')){
+        document.getElementById('contactSuccess')?.classList.remove('hidden');
+      }
     } catch(err) { console.error(err); }
+
+    initEmailJS();
+    handleContactForm();
+    setupScrollAnimations();
+    setupScrollTop();
   </script>
 </body>
 </html>
