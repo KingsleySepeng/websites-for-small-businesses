@@ -25,6 +25,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html { scroll-behavior: smooth; }
+    [data-animate] { opacity: 0; transform: translateY(32px); transition: opacity .6s ease, transform .6s ease; }
+    [data-animate].animate-in { opacity: 1; transform: translateY(0); }
+    #scrollTopBtn { position: fixed; right: 1.5rem; bottom: 1.5rem; opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .3s ease, transform .3s ease; }
+    #scrollTopBtn.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    .loading-dots { display: inline-flex; align-items: center; gap: 4px; }
+    .loading-dots span { display: block; width: 6px; height: 6px; border-radius: 9999px; background: currentColor; animation: bounce 0.6s infinite alternate; }
+    .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce { to { transform: translateY(-4px); opacity: 0.7; } }
+  </style>
 </head>
 <body class="font-sans text-slate-800 bg-giwhite">
   <header class="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-slate-200">
@@ -62,7 +74,7 @@
     </div>
   </header>
 
-  <section class="relative overflow-hidden">
+  <section class="relative overflow-hidden" data-animate>
     <div class="absolute inset-0 bg-gradient-to-br from-kgreen-50 via-giwhite to-kblue-50"></div>
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 grid md:grid-cols-[1.1fr_0.9fr] gap-12 items-center">
       <div>
@@ -107,7 +119,7 @@
     </div>
   </section>
 
-  <section id="about" class="py-16">
+  <section id="about" class="py-16" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-start">
         <div>
@@ -141,7 +153,7 @@
     </div>
   </section>
 
-  <section id="strategic" class="py-16 bg-kblue-50/50">
+  <section id="strategic" class="py-16 bg-kblue-50/50" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto">
         <h2 class="text-3xl font-extrabold tracking-tight text-kslate">Strategic priorities 2025–2027</h2>
@@ -176,7 +188,7 @@
     </div>
   </section>
 
-  <section id="org" class="py-16">
+  <section id="org" class="py-16" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
         <div>
@@ -194,7 +206,7 @@
     </div>
   </section>
 
-  <section id="programmes" class="py-16 bg-white">
+  <section id="programmes" class="py-16 bg-white" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
         <div>
@@ -228,7 +240,7 @@
     </div>
   </section>
 
-  <section id="updates" class="py-16 bg-kgreen-50/40">
+  <section id="updates" class="py-16 bg-kgreen-50/40" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
         <div>
@@ -251,7 +263,7 @@
     </div>
   </section>
 
-  <section id="resources" class="py-16">
+  <section id="resources" class="py-16" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <h2 class="text-3xl font-extrabold tracking-tight text-kslate">Resources &amp; downloads</h2>
       <p class="mt-2 text-slate-700">Provide official documents, policies, and forms. Update links to your actual files.</p>
@@ -290,7 +302,7 @@
     </div>
   </section>
 
-  <section id="partners" class="py-16 bg-kblue-50/40">
+  <section id="partners" class="py-16 bg-kblue-50/40" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto">
         <h2 class="text-3xl font-extrabold tracking-tight text-kslate">Partners &amp; supporters</h2>
@@ -307,7 +319,7 @@
     </div>
   </section>
 
-  <section id="provinces" class="py-16">
+  <section id="provinces" class="py-16" data-animate>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
         <div>
@@ -320,7 +332,7 @@
     </div>
   </section>
 
-  <section id="newsletter" class="py-16 bg-kgreen-600 text-white">
+  <section id="newsletter" class="py-16 bg-kgreen-600 text-white" data-animate>
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h2 class="text-3xl font-extrabold tracking-tight">Stay informed</h2>
       <p class="mt-3 text-white/80">Subscribe to monthly bulletins with event reminders, development opportunities, and international news.</p>
@@ -332,31 +344,98 @@
     </div>
   </section>
 
-  <section id="contact" class="py-16 bg-kblue-900 text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[0.85fr_1.15fr] gap-10 items-start">
-      <div>
-        <h2 class="text-3xl font-extrabold tracking-tight">Contact</h2>
-        <p class="mt-3 text-sm text-white/70">For general queries, partnerships, or competition information reach out via email. Use this section to list staff roles.</p>
-        <div class="mt-6 space-y-3 text-sm text-white/80">
-          <div>📧 <a class="underline decoration-dotted" href="mailto:info@kurashsa.org">info@kurashsa.org</a></div>
-          <div>📱 Socials: <a href="#" class="underline decoration-dotted">Instagram</a> · <a href="#" class="underline decoration-dotted">Facebook</a> · <a href="#" class="underline decoration-dotted">YouTube</a></div>
-          <div>🏢 National office: Pretoria, South Africa</div>
+  <section id="contact" class="py-16 bg-kblue-900 text-white" data-animate>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-start">
+        <div class="space-y-6">
+          <div>
+            <h2 class="text-3xl font-extrabold tracking-tight">Contact Kurash South Africa</h2>
+            <p class="mt-3 text-sm text-white/70">Reach the federation office for membership, events, or partnership queries. We respond within two working days.</p>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4 text-sm text-white/80">
+            <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/10">
+              <p class="text-xs uppercase tracking-wide text-white/60">Email</p>
+              <a class="mt-1 block font-semibold text-white" href="mailto:info@kurashsa.org">info@kurashsa.org</a>
+              <p class="mt-1 text-xs text-white/60">General enquiries</p>
+            </div>
+            <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/10">
+              <p class="text-xs uppercase tracking-wide text-white/60">Phone</p>
+              <p class="mt-1 font-semibold">+27 (0)12 000 0000</p>
+              <p class="mt-1 text-xs text-white/60">Weekdays 09:00–16:00</p>
+            </div>
+            <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/10">
+              <p class="text-xs uppercase tracking-wide text-white/60">Location</p>
+              <p class="mt-1 font-semibold">Pretoria • South Africa</p>
+              <p class="mt-1 text-xs text-white/60">National federation office</p>
+            </div>
+            <div class="rounded-2xl bg-white/10 p-4 ring-1 ring-white/10">
+              <p class="text-xs uppercase tracking-wide text-white/60">Social</p>
+              <p class="mt-1 font-semibold space-x-2">
+                <a class="underline decoration-dotted" href="#">Instagram</a>
+                <a class="underline decoration-dotted" href="#">Facebook</a>
+                <a class="underline decoration-dotted" href="#">YouTube</a>
+              </p>
+            </div>
+          </div>
+          <div class="rounded-2xl bg-white/10 p-5 ring-1 ring-white/10">
+            <h3 class="text-lg font-semibold text-white">Federation quick links</h3>
+            <ul class="mt-3 space-y-2 text-sm text-white/80">
+              <li>• <a class="underline" href="news.html">News directory</a></li>
+              <li>• <a class="underline" href="events.html">Events &amp; courses</a></li>
+              <li>• <a class="underline" href="achievements.html">Athlete achievements</a></li>
+            </ul>
+          </div>
         </div>
-        <div class="mt-8 rounded-3xl bg-white/10 p-6 text-sm text-white/80">
-          <h3 class="text-lg font-semibold text-white">Quick links</h3>
-          <ul class="mt-3 space-y-2">
-            <li>• <a class="underline" href="news.html">News directory</a></li>
-            <li>• <a class="underline" href="events.html">Events directory</a></li>
-            <li>• <a class="underline" href="achievements.html">Achievements directory</a></li>
-          </ul>
-        </div>
+        <form id="contactForm" class="rounded-3xl bg-white text-slate-900 p-6 sm:p-8 shadow-card space-y-5" novalidate>
+          <div>
+            <h3 class="text-2xl font-extrabold tracking-tight">Send us a message</h3>
+            <p class="mt-2 text-sm text-slate-600">Provide as much detail as possible so we can direct your query to the right commission.</p>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-semibold text-slate-700" for="contactName">Full name</label>
+              <input id="contactName" name="name" required autocomplete="name" class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2 focus:border-kblue-600 focus:ring-kblue-600" placeholder="Nomsa Dlamini" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-slate-700" for="contactEmail">Email</label>
+              <input id="contactEmail" name="email" type="email" required autocomplete="email" class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2 focus:border-kblue-600 focus:ring-kblue-600" placeholder="you@example.com" />
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-semibold text-slate-700" for="contactPhone">Phone</label>
+              <input id="contactPhone" name="phone" type="tel" class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2 focus:border-kblue-600 focus:ring-kblue-600" placeholder="+27" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-slate-700" for="contactTopic">Topic</label>
+              <select id="contactTopic" name="topic" class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2 focus:border-kblue-600 focus:ring-kblue-600">
+                <option value="Membership">Membership</option>
+                <option value="Events">Events &amp; competitions</option>
+                <option value="Development">Development programmes</option>
+                <option value="Media">Media &amp; marketing</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-slate-700" for="contactMessage">Message</label>
+            <textarea id="contactMessage" name="message" rows="4" required class="mt-1 w-full rounded-lg border border-slate-300 px-4 py-2 focus:border-kblue-600 focus:ring-kblue-600" placeholder="Tell us how we can help"></textarea>
+          </div>
+          <div class="flex items-center gap-3 text-xs text-slate-500">
+            <input id="contactConsent" type="checkbox" required class="rounded border-slate-300 text-kgreen-600 focus:ring-kgreen-400">
+            <label for="contactConsent">I agree to the federation processing my details for this request.</label>
+          </div>
+          <button id="contactSubmit" class="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-kgreen-600 text-white px-4 py-2.5 font-semibold hover:bg-kgreen-500 transition" type="submit">
+            <span>Send message</span>
+          </button>
+          <p id="contactSuccess" class="hidden text-sm font-semibold text-kgreen-600">Thank you! Your message is on its way.</p>
+          <p id="contactError" class="hidden text-sm font-semibold text-red-600">We could not send the email. Please try again or email info@kurashsa.org.</p>
+        </form>
       </div>
-      <div class="rounded-3xl overflow-hidden ring-1 ring-white/20 shadow-card">
-        <iframe class="h-96 w-full" src="https://www.google.com/maps?q=-25.7479,28.2293&hl=en&z=12&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <div class="rounded-3xl overflow-hidden ring-1 ring-white/20 shadow-card" data-animate>
+        <iframe class="h-96 w-full" src="https://www.google.com/maps?q=-25.7479,28.2293&hl=en&z=12&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Kurash South Africa office"></iframe>
       </div>
     </div>
   </section>
-
   <footer class="border-t border-slate-200 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-3">
       <div>© <span id="year"></span> Kurash South Africa. All rights reserved.</div>
@@ -368,7 +447,14 @@
     </div>
   </footer>
 
+  <button id="scrollTopBtn" class="rounded-full bg-kgreen-600 text-white h-12 w-12 shadow-soft flex items-center justify-center" aria-label="Scroll to top">↑</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
+    const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
+    const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+    const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+
     const orgSections = [
       {
         id:'executive',
@@ -590,6 +676,97 @@
       document.getElementById('newsletterEmail').value = '';
     });
 
+    function initEmailJS(){
+      if(window.emailjs && EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY'){
+        emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+      }
+    }
+
+    function handleContactForm(){
+      const form = document.getElementById('contactForm');
+      if(!form){ return; }
+      const submitBtn = document.getElementById('contactSubmit');
+      const successMsg = document.getElementById('contactSuccess');
+      const errorMsg = document.getElementById('contactError');
+
+      form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        successMsg.classList.add('hidden');
+        errorMsg.classList.add('hidden');
+
+        if(!form.reportValidity()){
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span class="loading-dots"><span></span><span></span><span></span></span><span>Sending</span>`;
+
+        const formData = new FormData(form);
+        const payload = {
+          from_name: formData.get('name'),
+          reply_to: formData.get('email'),
+          phone: formData.get('phone'),
+          topic: formData.get('topic'),
+          message: formData.get('message')
+        };
+
+        const resetButton = () => {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Send message</span>';
+        };
+
+        const hasCredentials = EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID' && EMAILJS_TEMPLATE_ID !== 'YOUR_TEMPLATE_ID' && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY';
+
+        if(!(window.emailjs && hasCredentials)){
+          console.warn('EmailJS credentials missing. Update EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, and EMAILJS_PUBLIC_KEY.');
+          successMsg.classList.remove('hidden');
+          localStorage.setItem('kurash_last_contact', JSON.stringify({ ...payload, date: new Date().toISOString() }));
+          form.reset();
+          resetButton();
+          return;
+        }
+
+        try {
+          await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, payload, EMAILJS_PUBLIC_KEY);
+          successMsg.classList.remove('hidden');
+          localStorage.setItem('kurash_last_contact', JSON.stringify({ ...payload, date: new Date().toISOString() }));
+          form.reset();
+        } catch (error) {
+          console.error(error);
+          errorMsg.classList.remove('hidden');
+        } finally {
+          resetButton();
+        }
+      });
+    }
+
+    function setupScrollAnimations(){
+      const animated = document.querySelectorAll('[data-animate]');
+      if(!animated.length){ return; }
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            entry.target.classList.add('animate-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      animated.forEach(el => observer.observe(el));
+    }
+
+    function setupScrollTop(){
+      const button = document.getElementById('scrollTopBtn');
+      if(!button){ return; }
+      window.addEventListener('scroll', () => {
+        if(window.scrollY > 320){
+          button.classList.add('show');
+        } else {
+          button.classList.remove('show');
+        }
+      });
+      button.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    }
+
     document.getElementById('year').textContent = new Date().getFullYear();
 
     document.querySelectorAll('[data-count]').forEach(el => {
@@ -611,7 +788,15 @@
       if(localStorage.getItem('kurash_newsletter')){
         document.getElementById('newsletterMsg').classList.remove('hidden');
       }
+      if(localStorage.getItem('kurash_last_contact')){
+        document.getElementById('contactSuccess')?.classList.remove('hidden');
+      }
     } catch(err) { console.error(err); }
+
+    initEmailJS();
+    handleContactForm();
+    setupScrollAnimations();
+    setupScrollTop();
   </script>
 </body>
 </html>
